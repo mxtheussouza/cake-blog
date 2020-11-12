@@ -74,7 +74,7 @@ class DATABASE_CONFIG {
 		'password' => 'k@ien123',
 		'database' => 'blog',
 		'prefix' => '',
-		// 'encoding' => 'utf8',
+		'encoding' => 'utf8',
 	);
 
 	public $test = array(
