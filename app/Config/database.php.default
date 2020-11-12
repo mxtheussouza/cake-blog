@@ -71,7 +71,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'docker-mysql',
 		'login' => 'root',
-		'password' => 'k@ien123',
+		'password' => '1234',
 		'database' => 'blog',
 		'prefix' => '',
 		'encoding' => 'utf8',
