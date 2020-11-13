@@ -1,25 +1,59 @@
-<h1>Posts do Blog</h1>
+<div class="blog">
 
-<?php
-echo $this->Html->link('Add Post', array('controller' => 'posts', 'action' => 'add'));
-?>
+    <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" style="border-radius: 20px;">
+            Clique aqui para fazer seu post.
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-weight: 700; text-align: center;">Crie seu blog</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <?php
+                        echo $this->Form->create('Post');
+                        echo $this->Form->input('title', array('class' => 'form-control'));
+                        echo $this->Form->input('body', array('class' => 'form-control'));
+                        echo $this->Form->end('Postar');
+                    ?>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Título</th>
-        <th>Data de Criação</th>
-    </tr>
+    <div style="width: 50%; margin: auto;">
+        <?php foreach ($posts as $post): ?>
+        <div class="card">
+            <div class="card-header" style="display: flex; justify-content: space-between; background: #dc3545">
+                <h5 style="font-weight: 700; color: #fff;">
+                    <?php echo $post['Post']['title']; ?>
+                </h5>
 
-    <?php foreach ($posts as $post): ?>
-        <tr>
-            <td><?php echo $post['Post']['id']; ?></td>
-            <td>
-                <?php echo $this->Html->link($post['Post']['title'],
-                    array('controller' => 'posts', 'action' => 'view', $post['Post']['id'])); ?>
-            </td>
-            <td><?php echo $post['Post']['created']; ?></td>
-        </tr>
-    <?php endforeach; ?>
+                <div class="options">
+                    <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-eye')), array('action' => 'view', $post['Post']['id']), array('escape' => false)) ?>
 
-</table>
+                    <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fa fa-pen')), array('action' => 'edit', $post['Post']['id']), array('escape' => false)) ?>
+
+                    <?php echo $this->Form->postLink(
+                        'X',
+                        array('action' => 'delete', $post['Post']['id']),
+                        array('confirm' => 'Quer mesmo deletar esse post?')
+                    )?>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <p class="card-text">
+                    <?php echo $post['Post']['body']; ?></td>
+                </p>
+            </div>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
