@@ -6,17 +6,14 @@
 }
 
 html,body {
-	height: 100vh;
+    height: 100vh;
+    background: #f1f2f3 !important;
+    overflow-x: hidden;
 }
 
 ul, li, a {
     text-decoration: none;
     list-style: none;
-}
-
-body {
-    height: 100vh;
-    overflow-x: hidden;
 }
 
 h1 {
@@ -45,8 +42,8 @@ input[type=submit] {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #28a745;
+    border-color: #28a745;
 }
 
 .hero {

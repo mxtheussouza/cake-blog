@@ -1,4 +1,4 @@
-<div style="background-image: url(../img/bg-blog.svg); padding: 2rem;">
+<div style="padding: 2rem;">
 
     <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" style="border-radius: 20px;">
