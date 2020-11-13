@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" style="border-radius: 20px;">
             Clique aqui para fazer seu post.
         </button>
-        <!-- Modal -->
+
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -17,8 +17,8 @@
                 <div class="modal-body">
                 <?php
                         echo $this->Form->create('Post');
-                        echo $this->Form->input('title', array('class' => 'form-control'));
-                        echo $this->Form->input('body', array('class' => 'form-control'));
+                        echo $this->Form->input('titulo', array('class' => 'form-control'));
+                        echo $this->Form->input('texto', array('class' => 'form-control'));
                         echo $this->Form->end('Postar');
                     ?>
                 </div>
@@ -32,7 +32,7 @@
         <div class="card">
             <div class="card-header" style="display: flex; justify-content: space-between; background: #dc3545">
                 <h5 style="font-weight: 700; color: #fff;">
-                    <?php echo $post['Post']['title']; ?>
+                    <?php echo $post['Post']['titulo']; ?>
                 </h5>
 
                 <div class="options">
@@ -50,7 +50,7 @@
 
             <div class="card-body">
                 <p class="card-text">
-                    <?php echo $post['Post']['body']; ?></td>
+                    <?php echo $post['Post']['texto']; ?></td>
                 </p>
             </div>
         </div>

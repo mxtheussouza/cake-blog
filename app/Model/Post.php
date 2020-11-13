@@ -6,10 +6,10 @@ class Post extends AppModel {
     public $name = 'Post';
 
     public $validate = array(
-        'title' => array(
+        'titulo' => array(
             'rule' => 'notBlank'
         ),
-        'body' => array(
+        'texto' => array(
             'rule' => 'notBlank'
         )
     );
