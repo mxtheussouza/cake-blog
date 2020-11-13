@@ -1,4 +1,4 @@
-<div class="blog">
+<div style="background:#f1f2f3; padding: 2rem;height: 100%;">
     <h1>Edite seu post</h1>
     <?php
         echo $this->Form->create('Post', array('url' => 'edit'));

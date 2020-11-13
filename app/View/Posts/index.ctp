@@ -1,4 +1,4 @@
-<div class="blog">
+<div style="background-image: url(../img/bg-blog.svg); padding: 2rem;">
 
     <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" style="border-radius: 20px;">
@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <div style="width: 50%; margin: auto;">
+    <div style="width: 50%; margin: auto; height: 100%;">
         <?php foreach ($posts as $post): ?>
         <div class="card">
             <div class="card-header" style="display: flex; justify-content: space-between; background: #dc3545">

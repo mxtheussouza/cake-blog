@@ -16,7 +16,6 @@ ul, li, a {
 
 body {
     height: 100vh;
-    overflow-x: hidden;
 }
 
 h1 {
@@ -87,15 +86,6 @@ input[type=submit] {
     background: #FFF;
 }
 
-
-.blog {
-    background-image: url(../img/bg-blog.svg);
-    background-size: cover;
-    background-position: center;
-    height: 100%;
-    padding: 2rem;
-}
-
 .options a {
     color: #FFF;
     padding: .4rem;
@@ -106,4 +96,8 @@ input[type=submit] {
 .options a:hover {
     color:  #FFF;
     text-decoration: none;
+}
+
+#flashMessage {
+    text-align: center;
 }
