@@ -14,7 +14,7 @@
     <p style="font-weight: bold; font-size: 1.4rem;">Bem vindo, <?php echo $this->Session->read('Auth.User.username'); ?>!</p>
 </div>
 
-<div style="padding: 2rem; margin-left: 60px;">
+<div style="padding: 0 0 2rem 0; margin-left: 60px;">
     <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" style="border-radius: 20px;">
             Clique aqui para fazer seu post.

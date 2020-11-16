@@ -46,6 +46,20 @@ input[type=submit] {
     border-color: #dc3545;
 }
 
+input[type=submit]:hover {
+    background-color: #fff;
+    color:  #dc3545;
+}
+
+button[data-toggle=modal]:hover {
+    background-color: #444c54;
+    border-color: #444c54;
+}
+
+.form-control {
+    margin-bottom: .8rem;
+}
+
 .hero {
     height: 100vh;
     background-image: url(../img/bg.svg);

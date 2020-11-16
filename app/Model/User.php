@@ -17,13 +17,6 @@ class User extends AppModel {
                 'rule' => array('notBlank'),
                 'message' => 'Precisa de uma senha'
             )
-        ),
-        'role' => array(
-            'valid' => array(
-                'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Por favor, preencha com uma informação válida',
-                'allowEmpty' => false
-            )
         )
     );
 

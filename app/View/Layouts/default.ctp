@@ -20,7 +20,6 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 		echo $this->Html->script('Bootstrap/jquery-3.5.1.min');
 		echo $this->Html->script('Bootstrap/bootstrap.min');
 		echo $this->Html->script('Bootstrap/fontawesome');
-		echo $this->Html->script('main');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');

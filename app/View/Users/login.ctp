@@ -6,7 +6,7 @@
                 <?php echo $this->Form->create('User');?>
                     <fieldset>
                         <legend>
-                            <h1><?php echo __('Preencha seus dados.'); ?></h1>
+                            <h1><?php echo __('Login'); ?></h1>
                         </legend>
 
                         <hr>
@@ -16,7 +16,7 @@
                     ?>
                     </fieldset>
 
-                    <?php echo $this->Html->link('Não tenho uma conta.', array('controller' => 'users', 'action' => 'add')); ?>
+                    <?php echo $this->Html->link('Não tenho uma conta.', array('controller' => 'users', 'action' => 'add'));?>
                 <?php echo $this->Form->end(__('Login'));?>
             </div>
         </div>

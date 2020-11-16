@@ -10,13 +10,13 @@
 
                         <hr>
 
-                        <?php echo $this->Form->input('username', array('class' => 'form-control'));
-                        echo $this->Form->input('password', array('class' => 'form-control'));
-                        echo $this->Form->input('role', array(
-                            'options' => array('author' => 'Author')
-                        ));
-                    ?>
+                        <?php 
+                            echo $this->Form->input('username', array('class' => 'form-control'));
+                            echo $this->Form->input('password', array('class' => 'form-control'));
+                        ?>
                     </fieldset>
+
+                    <?php echo $this->Html->link('Já tenho uma conta.', array('controller' => 'users', 'action' => 'login'));?>
                 <?php echo $this->Form->end(__('Registrar'));?>
             </div>
         </div>
