@@ -30,4 +30,4 @@ cd cake-blog
 
 **=> Renomeie para database.php**
 
-**=> E acesse localhost:8181 para a aplicação e localhost:8180 para o banco de dados.**
+**=> Acesse localhost:8181 para a aplicação e localhost:8180 para o banco de dados.**
