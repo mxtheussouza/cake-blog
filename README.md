@@ -11,7 +11,7 @@ Requisitos
  
 **Clone o repositório**
 ```sh
-git clone https://github.com/matheusdearaujo/chambra-laravel.git
+git clone https://github.com/matheusdearaujo/cake-blog.git
 ```
 
 **Entre na pasta do projeto**
