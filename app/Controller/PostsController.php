@@ -50,7 +50,7 @@ class PostsController extends AppController {
                 return true;
             }
             if (in_array($this->action, array('edit', 'delete'))) {
-                $postId = (int) $this->request->params['pass'][0];
+                $postId = (int)$this->request->params['pass'][0];
                 return $this->Post->isOwnedBy($postId, $user['id']);
             }
         }
