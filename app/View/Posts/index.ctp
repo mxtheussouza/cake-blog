@@ -1,5 +1,20 @@
-<div style="padding: 2rem;">
+<div class="aside">
+    <div style="position: relative; height: 100%;">
+        <ul>
+            <li data-toggle="tooltip" data-placement="right" title="Usuário"><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-user')), array('controller' => 'users', 'action' => 'index'), array('escape' => false)) ?></li>
 
+            <li data-toggle="tooltip" data-placement="right" title="Posts"><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-home')), array('controller' => 'posts', 'action' => 'index'), array('escape' => false)) ?></li>
+
+            <li data-toggle="tooltip" data-placement="right" title="Sair"><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fas fa-sign-out-alt')), array('controller' => 'users', 'action' => 'logout'), array('escape' => false)) ?></li>
+        </ul>
+    </div>
+</div>
+
+<div style="display: flex; justify-content: flex-end; padding: .8rem;">
+    <p style="font-weight: bold; font-size: 1.4rem;">Bem vindo, <?php echo $this->Session->read('Auth.User.username'); ?>!</p>
+</div>
+
+<div style="padding: 2rem; margin-left: 60px;">
     <div style="display: flex; justify-content: center; margin-bottom: 3rem;">
         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal" style="border-radius: 20px;">
             Clique aqui para fazer seu post.

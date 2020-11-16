@@ -42,8 +42,8 @@ input[type=submit] {
     border-radius: .25rem;
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 .hero {
@@ -98,4 +98,37 @@ input[type=submit] {
 
 #flashMessage {
     text-align: center;
+}
+
+.aside {
+    width: 60px; 
+    height: 100%; 
+    position: fixed; 
+    top:0; 
+    left:0; 
+    background: #dc3545;
+}
+
+.aside ul {
+    text-align: center;
+    padding: 1rem 0 1rem 0;
+}
+
+.aside ul li:last-child {
+    position: absolute;
+    bottom:0;
+    left: 25%;
+}
+
+.aside ul li a {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.aside ul li a:hover {
+    color: #333333;
+}
+
+.input .select .required{
+    display: none !important;
 }

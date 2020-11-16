@@ -6,7 +6,7 @@ class UsersController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
+        $this->Auth->allow('logout', 'add');
     }
 
     public function index() {
@@ -14,19 +14,12 @@ class UsersController extends AppController {
         $this->set('users', $this->paginate());
     }
 
-    public function view($id = null) {
-        if (!$this->User->exists($id)) {
-            throw new NotFoundException(__('Usuário inválido'));
-        }
-        $this->set('user', $this->User->findById($id));
-    }
-
     public function add() {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
                 $this->Flash->success(__('O usuário foi salvo'));
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'login'));
             } else {
                 $this->Flash->error(__('O usuário não pôde ser salvo. Por favor, tente novamente.'));
             }
@@ -69,7 +62,7 @@ class UsersController extends AppController {
     
     public function login() {
         if ($this->Auth->login()) {
-            $this->redirect($this->Auth->redirectUrl());
+            $this->redirect($this->Auth->redirect());
         } else {
             $this->Flash->error(__('Nome de usuário ou senha inválida, tente novamente'));
         }
