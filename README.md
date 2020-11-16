@@ -17,7 +17,7 @@ git clone https://github.com/matheusdearaujo/cake-blog.git
 **Entre na pasta do projeto**
 
 ```sh
-cd chambra-laravel
+cd cake-blog
 ```
 
 **Rode o script**
