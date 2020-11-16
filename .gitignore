@@ -9,6 +9,7 @@
 /dist
 /tags
 *.mo
+/mysql
 
 # IDE and editor specific files #
 #################################
