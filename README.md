@@ -1,4 +1,4 @@
-CakeBLOG
+CakeBLOG _(EM DESENVOLVIMENTO)_
 ------------
 Blog criado com base na documentação do CakePHP.
 
