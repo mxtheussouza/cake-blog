@@ -2,9 +2,10 @@
 
 App::uses('AppController', 'Controller');
 
-class BlogsController extends AppController {
-
-	public function index(){
+class BlogsController extends AppController
+{
+	public function index()
+	{
 		$this->layout = 'default';
 	}
 }
