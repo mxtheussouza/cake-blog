@@ -1,4 +1,5 @@
 CREATE TABLE posts (
+    user_id INT,
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     img VARCHAR(255),
     title VARCHAR(50) NOT NULL,

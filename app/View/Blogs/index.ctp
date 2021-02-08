@@ -3,7 +3,7 @@
 		<?php echo $this->element('nav') ?>
 
 		<main class="wrap">
-
+	
 		</main>
 
 		<div class="container">

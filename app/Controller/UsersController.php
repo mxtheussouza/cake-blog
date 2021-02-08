@@ -10,31 +10,12 @@ class UsersController extends AppController
         $this->Auth->allow('add', 'logout');
     }
 
-    public function index() 
-    {
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
-    }
-
-    public function view($id = null) 
+    public function profile($id = null) 
     {
         if (!$this->User->exists($id)) {
             throw new NotFoundException(__('Invalid user'));
         }
         $this->set('user', $this->User->findById($id));
-    }
-
-    public function add() 
-    {
-        if ($this->request->is('post')) {
-            $this->User->create();
-            if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('The user has been saved'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
-            }
-        }
     }
 
     public function edit($id = null) 
@@ -71,5 +52,11 @@ class UsersController extends AppController
         }
         $this->Flash->error(__('User was not deleted'));
         $this->redirect(array('action' => 'index'));
+    }
+
+    public function list()
+    {
+        $this->User->recursive = 0;
+        $this->set('users', $this->paginate());
     }
 }

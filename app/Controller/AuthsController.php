@@ -15,7 +15,7 @@ class AuthsController extends AppController
         if ($this->Auth->login()) {
             $this->redirect($this->Auth->redirect());
         } else {
-            $this->Flash->error(__('Invalid username or password, try again'));
+            $this->Flash->error(__('Email ou senha inválida, tente novamente.'));
         }
     }
 
@@ -29,19 +29,20 @@ class AuthsController extends AppController
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('The user has been saved'));
-                $this->redirect(array('action' => 'login'));
+                $this->Flash->success(__('Você foi cadastrado.'));
+                $this->redirect(['action' => 'login']);
             } else {
-                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+                $this->Flash->error(__('Cadastrado não conseguiu ser efetuado, tente novamente.'));
             }
         }
     }
 
-    public function beforeSave($options = array()) 
+    public function beforeSave($options = []) 
     {
         if (isset($this->data[$this->alias]['password'])) {
             $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
         }
+        
         return true;
     }
 }
