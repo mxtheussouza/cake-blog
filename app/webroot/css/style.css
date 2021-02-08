@@ -1,148 +1,224 @@
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-html,body {
-    height: 100vh;
-    background: #f1f2f3 !important;
-    overflow-x: hidden;
+.global-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-ul, li, a {
-    text-decoration: none;
+.global-section {
+    flex: 1 0 auto;
+}
+
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-height: 160px;
+    padding: 0;
+}
+
+.header-logo {
+    line-height: initial;
+    box-sizing: border-box;
+    padding: 0 20px 0 0;
+    flex: 0 1 250px;
+}
+
+.header-logo .is-logo img {
+    max-width: 100%;
+    max-height: 50px;
+}
+
+.header-nav {
+    text-align: right;
+    flex: 0 0 calc(100% - 250px);
+}
+
+.nav-wrap {
+    font-size: 15px;
+    font-weight: 700;
+    position: relative;
+    width: auto;
+    padding: 0;
+    letter-spacing: 0.9px;
+}
+
+.nav-list {
+    z-index: 999;
+    min-width: 150px;
+    margin: 0;
+    padding: 0;
     list-style: none;
 }
 
-h1 {
-    font-weight: 700 !important;
+.nav-wrap > .nav-list {
+    display: block;
 }
 
-textarea {
-    resize: none !important;
-}
-
-input[type=submit] {
-    margin-top: 1rem;
+.nav-wrap > .nav-list > .nav-list-item {
+    position: relative;
     display: inline-block;
-    font-weight: 600;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: 1rem;
+    background-color: transparent;
+}
+
+.nav-list-item {
+    margin: 0;
+}
+
+.nav-list .nav-list-item .nav-link {
+    color: #b8403f;
+}
+
+.padding-card {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.content-blog .card {
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;
+    height: 260px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.content-blog h2.card-title {
+    font-size: 1.25rem;
+    line-height: 1.25;
+}
+
+.content-blog h2.card-title a {
+    color: rgba(0,0,0,.8);
+    font-weight: 700;
+}
+
+.content-blog h2.card-title a:hover {
+    color: rgba(0,0,0,.6);
+    text-decoration: none;
+}
+
+.content-blog span.card-text {
+    color: #888;
+    font-size: 0.9rem;
     line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    font-weight: 400;
 }
 
-input[type=submit]:hover {
-    background-color: #fff;
-    color:  #dc3545;
+.content-blog .wrapthumbnail {
+    height: 258px;
+    flex: 0 0 auto;
 }
 
-button[data-toggle=modal]:hover {
-    background-color: #444c54;
-    border-color: #444c54;
-}
-
-.form-control {
-    margin-bottom: .8rem;
-}
-
-.hero {
-    height: 100vh;
-    background-image: url(../img/bg.svg);
+.content-blog .thumbnail {
     background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+    height: 100%;
+    display: block;
+    background-position: 38% 22% !important;
+    background-origin: border-box!important;
+    border-top-left-radius: 2px;
 }
 
-.banner-title {
-    margin: 80px 130px;
+.content-blog .card-block {
+    padding: 1.25rem;
+    padding-left: 0;
 }
 
-.banner-title h1 {
-    font-size: 100px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: rgba(0,0,0,0.9);
-}
-
-.btnAcess {
-    color: #FFF;
-    background: #dc3545;
-    padding: 20px 40px;
-    border-radius: .8rem;
-    border: 2px solid #FFF;
-    box-shadow: 0px 3px 20px 0px rgba(13, 21, 75, 0.3);
-    transition: background 300ms;
-    font-weight: bold;
-}
-
-.btnAcess:hover {
-    text-decoration: none;
-    color: #dc3545;
-    background: #FFF;
-}
-
-.options a {
-    color: #FFF;
-    padding: .4rem;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.options a:hover {
-    color:  #FFF;
-    text-decoration: none;
-}
-
-#flashMessage {
-    text-align: center;
-}
-
-.aside {
-    width: 60px; 
-    height: 100%; 
-    position: fixed; 
-    top:0; 
-    left:0; 
-    background: #dc3545;
-}
-
-.aside ul {
-    text-align: center;
-    padding: 1rem 0 1rem 0;
-}
-
-.aside ul li:last-child {
+.content-blog .wrapfooter {
     position: absolute;
-    bottom:0;
-    left: 25%;
+    bottom: 20px;
+    font-size: 12px;
+    display: block;
+    width: 85%;
 }
 
-.aside ul li a {
-    font-size: 2rem;
-    color: #fff;
+.meta-footer-thumb img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    margin-right: 13px;
+    border-radius: 100%;
 }
 
-.aside ul li a:hover {
-    color: #333333;
+.author-meta {
+    flex: 1 1 auto;
+    white-space: nowrap!important;
+    text-overflow: ellipsis!important;
+    overflow: hidden!important;
 }
 
-.input .select .required{
-    display: none !important;
+span.post-name, span.post-date, span.author-meta {
+    display: inline-block;
+}
+
+span.post-name {
+    text-transform: capitalize;
+}
+
+span.post-name a, span.post-read-more a:hover {
+    color: rgba(0,0,0,.8);
+}
+
+span.post-date, span.post-read, span.readingtime {
+    color: rgba(0,0,0,.54);
+}
+
+span.post-read-more {
+    align-items: center;
+    float: right;
+    margin-top: 12px;
+}
+
+span.post-read-more a {
+    color: rgba(0,0,0,.44);
+}
+
+.bottompagination span.navigation {
+    display: block;
+    font-size: 0.93rem;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 0;
+    margin-top: 20px;
+    color: #292929;
+    border-top: 1px solid #ddd;
+    border-radius: 0;
+}
+
+.bottompagination span.navigation li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 2px;
+    padding: 0 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    position: relative;
+    color: #999;
+}
+
+.bottompagination span.navigation a {
+    color: #999;
+}
+
+.bottompagination span.navigation li a.active {
+    color: #111;
+    font-weight: 700;
+}
+
+.bottompagination span.navigation li a.active:after {
+    content: "";
+    background-color: #111;
+    height: 1px;
+    position: absolute;
+    top: -17px;
+    left: 0;
+    right: 0;
 }
