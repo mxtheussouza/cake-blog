@@ -1,0 +1,35 @@
+CREATE TABLE posts (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    img VARCHAR(255),
+    title VARCHAR(50) NOT NULL,
+    content TEXT NOT NULL,
+    created DATETIME DEFAULT,
+    modified DATETIME DEFAULT
+);
+
+INSERT INTO posts (title, content, created)
+    VALUES ('The title', 'This is the post body.', NOW());
+
+
+CREATE TABLE users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    username VARCHAR(50) UNIQUE,
+    name VARCHAR(255),
+    password VARCHAR(255) NOT NULL,
+    photo VARCHAR(255),
+    group_id INT NOT NULL DEFAULT 2,
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+);
+
+CREATE TABLE groups (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name VARCHAR(50) UNIQUE NOT NULL,
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
+);
+
+INSERT INTO groups (name, created)
+    VALUES ('Develop', NOW());
+INSERT INTO groups (name, created)
+    VALUES ('Author', NOW());
