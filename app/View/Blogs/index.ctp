@@ -16,7 +16,7 @@
 								<div class="row">
 									<div class="col-md-5 wrapthumbnail">
 										<a href="/posts/post/<?php echo $v['Post']['id']; ?>">
-											<div class="thumbnail" style="background-image:url(./img/post-img/linux.png);">
+											<div class="thumbnail" style="background-image:url(./img/upload/post-img/linux.png);">
 											</div>
 										</a>
 									</div>

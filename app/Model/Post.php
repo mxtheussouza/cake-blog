@@ -6,7 +6,7 @@ class Post extends AppModel
 {
     public $name = 'Post';
 
-	public $useTable = "posts";
+	public $useTable = 'posts';
 	public $belongsTo = 'User';
 
     public $validate = [

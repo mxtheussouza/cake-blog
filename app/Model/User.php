@@ -6,6 +6,10 @@ class User extends AppModel
 {
     public $name = 'User';
 
+    public $useTable = 'users';
+    public $hasMany = 'Post';
+    public $belongsTo = 'Group';
+
 	public $validate = [
         'username' => [
             'required' => [

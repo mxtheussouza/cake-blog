@@ -20,7 +20,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	?>
 
     <!-- ICON -->
-    <link rel="shortcut icon" href="./img/favicon.png"/>
+    <link rel="shortcut icon" href="/img/favicon.png"/>
 
     <!-- META TAGS -->
     <meta charset="UTF-8"/>

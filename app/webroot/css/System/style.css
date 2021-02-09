@@ -239,3 +239,82 @@ span.post-read-more a {
     left: 0;
     right: 0;
 }
+
+.author-content .author-info {
+	display: flex; 
+	align-items: center;
+	line-height: 1;
+}
+
+.author-content .author-info .user-image img {
+	width: 160px
+}
+
+.author-content .author-info .author-name, .author-content .author-info .user-image {
+	margin-left: 1.4rem;
+}
+
+.author-content .author-info div span {
+    display: block;
+	font-size: 4rem;
+	font-weight: 700;
+}
+
+.author-content .author-info div span.nick {
+    font-size: 1.8rem;
+    color: #111111;
+}
+
+.author-content .author-info div p {
+    margin-top: 1.4rem;
+	font-size: 1.4rem;
+	font-weight: 400;
+}
+
+.anyposts {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.anyposts img {
+	width: 600px
+}
+
+.anyposts p {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.title-border-left::after {
+	content: "";
+	position: absolute;
+	width: 50px;
+	border: 1px solid #b8403f;
+}
+
+.post-rel {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    margin: 3rem 0;
+	text-decoration: none !important;
+	color: #313534;
+}
+
+.post-rel:hover {
+	color: initial;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-rel .post-rel-title {
+	padding: 2rem 1rem;
+}
+
+.post-rel .post-rel-title h3 {
+	margin: 0;
+	text-transform: uppercase;
+}
