@@ -20,7 +20,7 @@
 											</div>
 										</a>
 									</div>
-									<div class=" col-md-7">
+									<div class=" col-md-7 wrapcontent">
 										<div class="card-block">
 											<h2 class="card-title">
 												<a href="/posts/post/<?php echo $v['Post']['id']; ?>"><?php echo $v['Post']['title']; ?></a>
@@ -29,13 +29,13 @@
 											<div>
 												<div class="wrapfooter">
 													<span class="meta-footer-thumb">
-														<a href="#">
+														<a href="/users/profile/<?php echo $v['User']['id']; ?>">
 															<img alt="Author Photo" src="#" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 														</a>
 													</span>
 													<span class="author-meta">
 														<span class="post-name">
-															<a href="#">Matheus Araújo</a>
+															<a href="/users/profile/<?php echo $v['User']['id']; ?>"><?php echo $v['User']['name']; ?></a>
 														</span>
 														<br>
 														<span class="post-date"><?php echo date("d/m/Y", strtotime($v['Post']['created'])); ?></span>
@@ -48,13 +48,12 @@
 							</div>
 						</div>
 					<?php }?>
+				</div>
+				<?php echo $this->element('pagination') ?>
 				<?php } else { ?>
 					<h1>Não existem posts.</h1>
 				<?php } ?>
-				</div>
 			</section>
 		</div>
-
-		<?php echo $this->element('pagination') ?>
 	</div>
 </div>

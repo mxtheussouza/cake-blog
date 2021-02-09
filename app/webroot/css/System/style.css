@@ -61,9 +61,10 @@ nav header {
 }
 
 .nav-wrap > .nav-list {
-    display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
-
 .nav-wrap > .nav-list > .nav-list-item {
     position: relative;
     display: inline-block;

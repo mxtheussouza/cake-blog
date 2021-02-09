@@ -1,4 +1,3 @@
-<?php pr($this->Session->read('Auth.User')) ?>
 <nav class="wrap">
     <header>
         <div class="header-logo">
@@ -25,11 +24,15 @@
 
 									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'add'], ['class' => 'nav-link']); ?>
 
-									<?php echo $this->Html->link("SAIR", ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link']); ?>
+									<?php echo $this->Html->link("Sair", ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link']); ?>
 								</div>
 							</div>
 						</li>
 					<?php } ?>
+
+					<!-- <li class="nav-list-item change-theme" data-toggle="tooltip" data-placement="bottom" title="Modo Escuro">
+                      <i class="fa fa-toggle-off theme-button"></i>
+                    </li> -->
 				</ul>
             </nav>
         </div>

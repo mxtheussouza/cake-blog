@@ -9,7 +9,12 @@ class BlogsController extends AppController
 		$this->loadModel('Post');
 		$this->layout = 'default';
 
-		$dados = $this->Post->find('all');
+		$this->paginate = [
+            'order' => ['Post.id' => 'DESC'],
+            'limit' => 15
+        ];
+
+		$dados = $this->paginate('Post');
 
 		$this->set(compact('dados'));
 	}
