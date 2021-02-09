@@ -24,7 +24,11 @@
 				<hr>
 
 				<div class="posts-relacionados">
-					<h2 style="font-weight: 700;">Posts do Autor</h2>
+					<?php if ($this->Session->read('Auth.User.id') == $dados['User']['id']) { ?>
+						<h2 style="font-weight: 700;">Seus Posts</h2>
+					<?php } else { ?>
+						<h2 style="font-weight: 700;">Posts do Autor</h2>
+					<?php } ?>
 					<span class="title-border-left"></span>
 					<?php if(!empty($postAuthor)){ ?>
 						<div class="row">
