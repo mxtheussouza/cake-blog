@@ -20,7 +20,9 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-
+/**
+ * Auth
+ */
 Router::connect('/', ['controller' => 'blogs', 'action' => 'index']);
 Router::connect('/login', ['controller' => 'users', 'action' => 'login']);
 Router::connect('/register', ['controller' => 'users', 'action' => 'register']);

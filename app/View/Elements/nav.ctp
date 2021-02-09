@@ -20,7 +20,7 @@
 							<div class="dropdown">
 								<?php echo $this->Html->link($this->Session->read('Auth.User.nickname'), ['controller' => '', 'action' => ''], ['class' => 'nav-link dropbtn']); ?>
 								<div id="myDropdown" class="dropdown-content">
-									<?php echo $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'profile'], ['class' => 'nav-link']); ?>
+									<?php echo $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'profile', $this->Session->read('Auth.User.id')], ['class' => 'nav-link']); ?>
 
 									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'add'], ['class' => 'nav-link']); ?>
 

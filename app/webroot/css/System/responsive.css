@@ -49,6 +49,12 @@
     }
 }
 
+@media (min-width: 767px) and (max-width: 999px) {
+    .content-blog .card-block {
+		padding-left: 1.25rem !important;
+	}
+}
+
 @media (max-width: 991px) {
     span.post-read-more {
         display: none;
