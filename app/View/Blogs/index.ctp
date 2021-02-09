@@ -3,7 +3,7 @@
 		<?php echo $this->element('nav') ?>
 
 		<main class="wrap">
-	
+
 		</main>
 
 		<div class="container">
@@ -38,7 +38,7 @@
 															<a href="#">Matheus Araújo</a>
 														</span>
 														<br>
-														<span class="post-date"><?php echo substr($v['Post']['created'],0,10); ?></span>
+														<span class="post-date"><?php echo date("d/m/Y", strtotime($v['Post']['created'])); ?></span>
 													</span>
 												</div>
 											</div>
@@ -49,7 +49,7 @@
 						</div>
 					<?php }?>
 				<?php } else { ?>
-
+					<h1>Não existem posts.</h1>
 				<?php } ?>
 				</div>
 			</section>

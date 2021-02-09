@@ -4,25 +4,32 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController
 {
-	public function beforeFilter() 
+    public function profile($id = null)
     {
-        parent::beforeFilter();
-        $this->Auth->allow('add', 'logout');
-    }
+		$this->layout = 'default';
 
-    public function profile($id = null) 
-    {
         if (!$this->User->exists($id)) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('Usuário Inválido'));
         }
-        $this->set('user', $this->User->findById($id));
+
+		$dados = $this->User->findById($id);
+
+        $this->set(compact('dados'));
     }
 
-    public function edit($id = null) 
+	public function schedule()
+    {
+		$this->layout = 'default';
+
+        $this->User->recursive = 0;
+        $this->set('users', $this->paginate());
+    }
+
+    public function edit($id = null)
     {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('Usuário Inválido'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
@@ -37,7 +44,7 @@ class UsersController extends AppController
         }
     }
 
-    public function delete($id = null) 
+    public function delete($id = null)
     {
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
@@ -54,9 +61,34 @@ class UsersController extends AppController
         $this->redirect(array('action' => 'index'));
     }
 
-    public function list()
-    {
-        $this->User->recursive = 0;
-        $this->set('users', $this->paginate());
+	public function register()
+	{
+		$this->layout = 'default';
+
+        if ($this->request->is('post')) {
+            $this->User->create();
+            if ($this->User->save($this->request->data)) {
+                $this->Flash->success(__('The user has been saved'));
+                $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            }
+        }
     }
+
+	public function login()
+	{
+		$this->layout = 'default';
+
+		if ($this->Auth->login()) {
+			$this->redirect($this->Auth->redirect());
+		} else {
+			$this->Flash->error(__('Invalid username or password, try again'));
+		}
+	}
+
+	public function logout()
+	{
+		$this->redirect($this->Auth->logout());
+	}
 }

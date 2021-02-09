@@ -4,8 +4,8 @@ CREATE TABLE posts (
     img VARCHAR(255),
     title VARCHAR(50) NOT NULL,
     content TEXT NOT NULL,
-    created DATETIME DEFAULT,
-    modified DATETIME DEFAULT
+    created DATETIME DEFAULT NULL,
+    modified DATETIME DEFAULT NULL
 );
 
 INSERT INTO posts (title, content, created)
@@ -16,6 +16,7 @@ CREATE TABLE users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     username VARCHAR(50) UNIQUE,
     name VARCHAR(255),
+	nickname VARCHAR(50) UNIQUE,
     password VARCHAR(255) NOT NULL,
     photo VARCHAR(255),
     group_id INT NOT NULL DEFAULT 2,

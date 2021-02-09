@@ -74,8 +74,17 @@ nav header {
     margin: 0;
 }
 
+.nav-list-item a {
+    color: #b8403f;
+}
+
 .nav-list .nav-list-item .nav-link {
     color: #b8403f;
+}
+
+.nav-list .nav-list-item .nav-link.primary {
+	border: 1px solid #b8403f;
+	border-radius: 4px;
 }
 
 .padding-card {
@@ -85,10 +94,17 @@ nav header {
 
 .content-blog .card {
     border: 1px solid rgba(0,0,0,.1);
-    border-radius: 2px;
+    border-radius: 4px;
     height: 260px;
     padding-left: 0;
     margin-bottom: 20px;
+	-webkit-transition: box-shadow 0.2s ease,border 0.2s ease;
+    transition: box-shadow 0.2s ease,border 0.2s ease;
+}
+
+.content-blog .card:hover {
+	box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    border-color: transparent;
 }
 
 .content-blog h2.card-title {
@@ -97,7 +113,7 @@ nav header {
 }
 
 .content-blog h2.card-title a {
-    color: rgba(0,0,0,.8);
+    color: #b8403f;
     font-weight: 700;
 }
 

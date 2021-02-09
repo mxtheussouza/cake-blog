@@ -16,8 +16,10 @@ class PostsController extends AppController
         $this->set(compact('dados'));
     }
 
-    public function add() 
+    public function add()
     {
+		$this->layout = 'default';
+
         if ($this->request->is('post')) {
             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
             if ($this->Post->save($this->request->data)) {
@@ -27,7 +29,7 @@ class PostsController extends AppController
         }
     }
 
-    function edit($id = null) 
+    function edit($id = null)
     {
         $this->Post->id = $id;
         if ($this->request->is('get')) {

@@ -16,9 +16,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 		echo $this->Html->script('Bootstrap/bootstrap.min');
 		echo $this->Html->script('Bootstrap/fontawesome');
 
-		echo $this->fetch('meta');
-		echo $this->fetch('css');
-		echo $this->fetch('script');
+		echo $this->Html->script('AppBlog');
 	?>
 
     <!-- ICON -->
