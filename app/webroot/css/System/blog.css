@@ -1,0 +1,210 @@
+/***************  POST  ***************/
+.mobile-toggle {
+	display: none;
+}
+
+.post-body .img-blog {
+	transition: transform .5s;
+	cursor: zoom-in;
+	height:320px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.maxSize {
+	transform: scale(1.5) !important;
+	cursor: zoom-out !important;
+}
+
+.post-body p {
+	font-size: 21px;
+	word-break: break-word;
+	line-height: 32px;
+	margin-top: 1rem;
+	margin-bottom: -0.46em;
+	font-weight: 400;
+}
+
+.blog-title h1 {
+	font-size: 48px;
+	text-transform: uppercase;
+}
+
+.post-sidebar .popular-tags h2,
+.post-sidebar .category-post h2,
+.post-sidebar .popular-post h2 {
+	font-weight: 700;
+}
+
+.header-post {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 5rem;
+}
+
+.share a {
+	text-decoration: none !important;
+}
+
+.header-post .share a > .fa-whatsapp {
+	display: none;
+}
+
+.header-post .share a > .fa-paper-plane {
+	display: none;
+}
+
+.header-post .share i {
+	font-size: 2rem;
+	margin: 0 .8rem;
+}
+
+.header-post .share .fa-paper-plane {
+	font-size: 1.8rem;
+	margin: 0 .8rem;
+}
+
+.footer-post {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 5rem;
+}
+
+.footer-post .share a > .fa-whatsapp {
+	display: none;
+}
+
+.footer-post .share a > .fa-paper-plane {
+	display: none;
+}
+
+.footer-post .share i {
+	font-size: 3rem;
+	margin: 0 .8rem;
+}
+
+.footer-post .share .fa-paper-plane {
+	font-size: 2.8rem;
+	margin: 0 .8rem;
+}
+
+.user-info {
+	margin: 1rem 0 2rem 0;
+}
+
+.user-info a, .about-autor a {
+	display: flex;
+	align-items: center;
+}
+
+.user-info a, .about-autor a {
+	text-decoration: none !important;
+	font-weight: 700;
+}
+
+.img-avatar {
+	width: 48px;
+	border-radius: 50%;
+}
+
+.user-info span {
+	color: #313534;
+	margin-left: 1.2rem;
+}
+
+.user-info a .linha-link-menu {
+    width: 10%;
+    height: 2px;
+    background-image: linear-gradient(120deg, #de5452 0%, #b8403f 100%);
+    transition: .5s
+}
+
+.user-info a span:hover > .linha-link-menu {
+    width: 100% !important;
+}
+
+.post-rel {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    margin: 3rem 0;
+	text-decoration: none !important;
+	color: #313534;
+}
+
+.post-rel:hover {
+	color: initial;
+	box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+.post-rel.others:hover {
+	box-shadow: none !important;
+	transform: scale(0.95);
+}
+
+.post-rel .post-rel-title {
+	padding: 2rem 1rem;
+}
+
+.post-rel .post-rel-title h3 {
+	margin: 0;
+	text-transform: uppercase;
+}
+
+@media (max-width: 767px) {
+	.mobile-toggle {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding: 1rem 2rem 0 2rem;
+	}
+	.mobile-toggle i {
+		font-size: 3rem;
+		cursor: pointer;
+	}
+    .blog-title h1 {
+		font-size: 34px;
+	}
+	.post-body .img-blog {
+		height:auto;
+	}
+	.maxSize {
+		transform: none !important;
+	}
+	.header-post {
+		padding: 0 2rem;
+	}
+	.footer-post {
+		padding: 0;
+	}
+	.header-post .share a > .fa-whatsapp{
+		display: initial;
+	}
+	.footer-post .share a > .fa-whatsapp{
+		display: initial;
+	}
+	.header-post .share a > .fa-paper-plane{
+		display: initial;
+	}
+	.footer-post .share a > .fa-paper-plane{
+		display: initial;
+	}
+	.post-rel.others {
+		width: 50%;
+	}
+
+}
+
+@media (max-width: 570px) {
+	.posts-relacionados .title-border-left {
+		display: none;
+	}
+	.post-rel.others {
+		width: 100%;
+	}
+}

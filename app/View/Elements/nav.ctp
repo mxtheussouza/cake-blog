@@ -18,7 +18,16 @@
 					<?php } else { ?>
 						<li class="nav-list-item">
 							<div class="dropdown">
-								<?php echo $this->Html->link($this->Session->read('Auth.User.nickname'), ['controller' => '', 'action' => ''], ['class' => 'nav-link dropbtn']); ?>
+								<div style="display: flex;">
+									<?php echo $this->Html->link($this->Session->read('Auth.User.nickname'), ['controller' => '', 'action' => ''], ['class' => 'nav-link dropbtn']); ?>
+
+									<?php if (empty($v['User']['photo'])) { ?>
+										<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+									<?php } else { ?>
+										<img alt="Author Photo" src="#" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+									<?php } ?>
+								</div>
+
 								<div id="myDropdown" class="dropdown-content">
 									<?php echo $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'profile', $this->Session->read('Auth.User.id')], ['class' => 'nav-link']); ?>
 

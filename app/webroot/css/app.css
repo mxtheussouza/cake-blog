@@ -1,6 +1,7 @@
 @import './System/reset.css';
 @import './System/responsive.css';
 @import './System/style.css';
+@import './System/blog.css';
 @import './System/dropdown.css';
 @import './System/dark-mode.css';
 @import './Bootstrap/bootstrap.min.css';
