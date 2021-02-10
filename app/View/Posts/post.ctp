@@ -38,7 +38,13 @@
 						<div class="col-md-12">
 							<article class="style-default-bright">
 								<div>
-									<?php echo $this->Html->image($dados['Post']['img'],['class' => 'img-blog']);?>
+									<?php
+										if (empty($dados['Post']['img'])) {
+											echo $this->Html->image('blogicon.png',['class' => 'img-blog']);
+										} else {
+											echo $this->Html->image($dados['Post']['img'],['class' => 'img-blog']);
+										}
+									?>
 								</div>
 
 								<hr>
@@ -52,15 +58,15 @@
 
 							<div class="footer-post">
 								<div class="share">
-									<a data-toggle="tooltip" data-placement="top" title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo Router::url('/', true);?>pages/post/<?php echo $dados['Post']['id'] ?>" target="_blank">
+									<a data-toggle="tooltip" data-placement="top" title="Facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo Router::url('/', true);?>posts/post/<?php echo $dados['Post']['id'] ?>" target="_blank">
 										<i class="fab fa-facebook"></i>
 									</a>
 
-									<a data-toggle="tooltip" data-placement="top" title="Twitter" href='https://twitter.com/intent/tweet?url=<?php echo Router::url('/', true);?>pages/post/<?php echo $dados['Post']['id'] ?>&text="<?php echo $dados['Post']['title']; ?>" VEJA ESTE POST AQUI:' target="_blank">
+									<a data-toggle="tooltip" data-placement="top" title="Twitter" href='https://twitter.com/intent/tweet?url=<?php echo Router::url('/', true);?>posts/post/<?php echo $dados['Post']['id'] ?>&text="<?php echo $dados['Post']['title']; ?>" VEJA ESTE POST AQUI:' target="_blank">
 										<i class="fab fa-twitter"></i>
 									</a>
 
-									<a data-toggle="tooltip" data-placement="top" title="WhatsApp" href='whatsapp://send?text=ACESSE: <?php echo Router::url('/', true);?>pages/post/<?php echo $dados['Post']['id'] ?> E LEIA SOBRE "<?php echo $dados['Post']['title']; ?>"'
+									<a data-toggle="tooltip" data-placement="top" title="WhatsApp" href='whatsapp://send?text=ACESSE: <?php echo Router::url('/', true);?>posts/post/<?php echo $dados['Post']['id'] ?> E LEIA SOBRE "<?php echo $dados['Post']['title']; ?>"'
 									target="_blank">
 										<i class="fab fa-whatsapp"></i>
 									</a>
