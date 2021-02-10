@@ -24,7 +24,7 @@
 
 									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'add'], ['class' => 'nav-link']); ?>
 
-									<?php echo $this->Html->link("Sair", ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link']); ?>
+									<?php echo $this->Html->link("Sair", ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link', 'id' => 'btnLogout']); ?>
 								</div>
 							</div>
 						</li>

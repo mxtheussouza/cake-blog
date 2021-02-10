@@ -89,7 +89,7 @@
 
 @media (max-width: 767px) {
 	.author-content .author-info  {
-		display: flex; 
+		display: flex;
 		flex-direction: column;
 		text-align: center;
 	}
@@ -102,7 +102,7 @@
 		width: 100%;
 	}
 
-	.posts-relacionados .title-border-left {
+	.title-border-left {
 		display: block;
 	}
 
@@ -124,7 +124,7 @@
 }
 
 @media (max-width: 570px) {
-	.posts-relacionados .title-border-left {
+	.title-border-left {
 		display: none;
-	}	
+	}
 }

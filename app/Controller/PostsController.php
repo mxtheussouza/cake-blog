@@ -28,27 +28,4 @@ class PostsController extends AppController
             }
         }
     }
-
-    function edit($id = null)
-    {
-        $this->Post->id = $id;
-        if ($this->request->is('get')) {
-            $this->request->data = $this->Post->findById($id);
-        } else {
-            if ($this->Post->save($this->request->data)) {
-                $this->Flash->success('Seu post foi atualizado.');
-                $this->redirect(['action' => 'index']);
-            }
-        }
-    }
-
-    function delete($id) {
-        if (!$this->request->is('post')) {
-            throw new MethodNotAllowedException();
-        }
-        if ($this->Post->delete($id)) {
-            $this->Flash->success('Seu post foi deletado.');
-            $this->redirect(['action' => 'index']);
-        }
-    }
 }

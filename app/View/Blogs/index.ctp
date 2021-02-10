@@ -9,15 +9,18 @@
 		<div class="container">
 			<section class="content-blog">
 				<div class="row">
-				<?php if(!empty($dados)){  ?>
+				<?php if (!empty($dados)) {  ?>
 					<?php foreach ($dados as $k => $v) { ?>
 						<div class="col-md-6 col-lg-6 col-sm-6 padding-card">
 							<div class="card" id="">
 								<div class="row">
 									<div class="col-md-5 wrapthumbnail">
 										<a href="/posts/post/<?php echo $v['Post']['id']; ?>">
-											<div class="thumbnail" style="background-image:url(./img/upload/post-img/linux.png);">
-											</div>
+											<?php if (empty($v['Post']['img'])) { ?>
+												<div class="thumbnail" style="background-image:url(/img/favicon.png);"></div>
+											<?php } else { ?>
+												<div class="thumbnail" style="background-image:url();"></div>
+											<?php } ?>
 										</a>
 									</div>
 									<div class=" col-md-7 wrapcontent">
@@ -30,7 +33,11 @@
 												<div class="wrapfooter">
 													<span class="meta-footer-thumb">
 														<a href="/users/profile/<?php echo $v['User']['id']; ?>">
-															<img alt="Author Photo" src="#" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+															<?php if (empty($v['User']['photo'])) { ?>
+																<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+															<?php } else { ?>
+																<img alt="Author Photo" src="#" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+															<?php } ?>
 														</a>
 													</span>
 													<span class="author-meta">
