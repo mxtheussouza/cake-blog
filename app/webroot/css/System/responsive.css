@@ -11,10 +11,6 @@
         word-break: initial;
     }
 
-    .nav-wrap > .nav-list {
-        display: none;
-    }
-
     .nav-wrap > .nav-list > .nav-list-item {
         position: relative;
         display: block;
@@ -132,6 +128,10 @@
 @media (max-width: 480px) {
 	nav header {
 		display: block !important;
+	}
+
+	.nav-wrap > .nav-list {
+		padding: 1rem;
 	}
 
 	.header-logo {

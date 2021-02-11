@@ -15,7 +15,7 @@
 
 						<div class="header-post">
 							<div class="user-info">
-								<a>
+								<a href="/users/profile/<?php echo $dados['User']['id']; ?>">
 									<div class="user-image">
 										<?php
 											if (empty($dados['User']['photo'])) {

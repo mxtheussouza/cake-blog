@@ -5,7 +5,6 @@
 
 .post-body .img-blog {
 	transition: transform .5s;
-	cursor: zoom-in;
 	height:320px;
 	width: 100%;
 	object-fit: contain;
@@ -29,6 +28,7 @@
 	font-size: 48px;
 	font-weight: 700;
 	text-transform: uppercase;
+	color: #333333;
 }
 
 .post-sidebar .popular-tags h2,
