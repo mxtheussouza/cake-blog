@@ -8,6 +8,3 @@ services:
       - ./:/var/www/html/public
     ports:
       - "8181:80"
-    external_links:
-      - docker-mysql:db
-    network_mode: bridge
