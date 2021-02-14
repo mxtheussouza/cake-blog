@@ -61,15 +61,28 @@ a:hover{
 }
 
 .input-auth {
+	background: transparent;
 	border: none;
 	border-bottom: 2px solid #d9d9d9;
-	padding: 1rem;
-	margin-bottom: 1rem;
+	padding: 1.2rem .8rem;
+	height: 30px;
+	margin-bottom: 1.4rem;
 	font-weight: 700;
 }
 
 .input-auth:focus {
-	outline: none;
+	border-color: #0aa89e;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+	border-bottom: 2px solid #b8403f;
+}
+
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 30px #FFF inset;
+}
+input:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0 30px #FFF inset;
 }
 
 .btn{

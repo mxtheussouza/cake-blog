@@ -2,9 +2,9 @@
 	<div class="global-section">
 		<?php echo $this->element('nav') ?>
 
-		<main class="wrap">
-
-		</main>
+		<!-- <main class="wrap">
+			<h1 style="text-align: center; font-weight: 700; font-size: 4rem; margin: 1rem;">Bem vindo ao CakeBLOG</h1>
+		</main> -->
 
 		<div class="container">
 			<section class="content-blog">
