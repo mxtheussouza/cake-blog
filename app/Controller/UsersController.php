@@ -60,7 +60,7 @@ class UsersController extends AppController
 
 	public function register()
 	{
-		$this->layout = 'default';
+		$this->layout = 'auth';
 
         if ($this->request->is('post')) {
             $this->User->create();
@@ -75,12 +75,10 @@ class UsersController extends AppController
 
 	public function login()
 	{
-		$this->layout = 'default';
+		$this->layout = 'auth';
 
 		if ($this->Auth->login()) {
 			$this->redirect($this->Auth->redirect());
-		} else {
-			$this->Flash->error(__('Invalid username or password, try again'));
 		}
 	}
 

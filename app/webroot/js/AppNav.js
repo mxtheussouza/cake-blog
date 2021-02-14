@@ -31,7 +31,7 @@ var habilitaBotoesNav = function() {
 
 		Swal.fire({
             title: 'Você deseja sair?',
-            type: 'question',
+            icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#218838',
             cancelButtonColor: '#d33',

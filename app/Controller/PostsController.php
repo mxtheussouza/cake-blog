@@ -28,4 +28,19 @@ class PostsController extends AppController
             }
         }
     }
+
+	function delete($id)
+	{
+		$this->layout = "ajax";
+
+		$response['error'] = true;
+		$response['msg'] = "Não foi possível excluir o registro";
+
+		if ($this->Post->delete($id)) {
+			$response['error'] = false;
+			$response['msg'] = "Registro excluído com sucesso";
+		}
+
+		$this->response->body(json_encode($response));
+	}
 }

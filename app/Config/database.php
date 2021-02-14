@@ -69,10 +69,10 @@ class DATABASE_CONFIG {
 	public $default = [
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'docker-mysql',
-		'login' => 'root',
-		'password' => '1234',
-		'database' => 'blog',
+		'host' => 'us-cdbr-east-03.cleardb.com',
+		'login' => 'ba46a7beb7956c',
+		'password' => '897f0f60',
+		'database' => 'heroku_b02ea7d03cfa7dc',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	];

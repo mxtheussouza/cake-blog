@@ -36,7 +36,17 @@
 							<div class="row">
 								<?php foreach($postAuthor as $k => $v){  ?>
 									<div class="col-md-6 col-lg-6 col-sm-6 padding-card">
-										<div class="card" id="">
+										<div class="card" style="position: relative;">
+											<?php if ($v['User']['id'] == $this->Session->read('Auth.User.id')) { ?>
+												<div class="dropdown" style="z-index: 1; position: absolute; top: 5px; right: 5px; cursor: pointer;">
+													<i class="fas fa-chevron-circle-down dropbtnprofile" style="color: #b8403f; font-size: 22px;"></i>
+
+													<div id="myDropdownProfile" class="dropdown-content-profile" style="right: 5%;">
+														<a idEdit="<?php echo $v['Post']['id']; ?>" class="nav-link btnEditPost"> Editar </a>
+														<a idDelete="<?php echo $v['Post']['id']; ?>" class="nav-link btnDeletePost"> Deletar </a>
+													</div>
+												</div>
+											<?php } ?>
 											<div class="row">
 												<div class="col-md-5 wrapthumbnail">
 													<a href="/posts/post/<?php echo $v['Post']['id']; ?>">

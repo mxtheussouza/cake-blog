@@ -1,13 +1,24 @@
-<div class="users form">
-<?php echo $this->Form->create('User');?>
-    <fieldset>
-        <legend><?php echo __('Add User'); ?></legend>
-        <?php
-			echo $this->Form->input('username', ['label'=>'E-mail','class'=>'form-control', 'tabindex'=>'1']);
-			echo $this->Form->input('name', ['label'=>'Nome Completo','class'=>'form-control', 'tabindex'=>'1']);
-			echo $this->Form->input('nickname', ['label'=>'Nome de Usuário','class'=>'form-control', 'tabindex'=>'1']);
-			echo $this->Form->input('password', ['label'=>'Senha','class'=>'form-control', 'tabindex'=>'1']);
-   	 	?>
-    </fieldset>
-<?php echo $this->Form->end(__('Submit'));?>
+<img class="wave" src="img/auth/wave.png">
+<div class="container">
+	<div class="img">
+		<img src="img/auth/bg.svg">
+	</div>
+	<div class="login-content">
+	<?php echo $this->Form->create('User');?>
+		<h2 class="title">Faça sua conta</h2>
+
+		<?php echo $this->Form->input('username', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'E-mail']); ?>
+
+		<?php echo $this->Form->input('name', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Nome Completo']); ?>
+
+		<?php echo $this->Form->input('nickname', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Nome de Usuário']); ?>
+
+		<?php echo $this->Form->input('password', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Senha']); ?>
+
+		<input type="submit" class="btn" value="Registrar">
+
+		<a href="/login">Já possue uma conta?</a>
+
+	<?php echo $this->Form->end();?>
+	</div>
 </div>
