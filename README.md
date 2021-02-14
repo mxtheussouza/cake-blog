@@ -1,6 +1,6 @@
 CakeBLOG _(EM DESENVOLVIMENTO)_
 ------------
-Blog criado com base na documentação do CakePHP.
+Blog criado com CakePHP.
 
 Requisitos
 ------------
@@ -11,19 +11,19 @@ Requisitos
 
 **=> Clone o repositório**
 ```sh
-git clone https://github.com/matheusdearaujo/cake-blog.git
+git clone https://github.com/matheusdearaujo/CakeBLOG.git
 ```
 
 **=> Entre na pasta do projeto**
 
 ```sh
-cd cake-blog
+cd CakeBLOG
 ```
 
-**=> Rode o script**
+**=> Rode o docker**
 
 ```sh
- ./run.sh
+ docker-compose up -d --build
 ```
 
-**=> Acesse localhost:8181 para a aplicação e localhost:8180 para o banco de dados.**
+**=> Acesse localhost:8181 para a aplicação.**
