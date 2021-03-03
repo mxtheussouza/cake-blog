@@ -37,7 +37,7 @@
 								<?php foreach($postAuthor as $k => $v){  ?>
 									<div class="col-md-6 col-lg-6 col-sm-6 padding-card">
 										<div class="card" style="position: relative;">
-											<?php if ($v['User']['id'] == $this->Session->read('Auth.User.id')) { ?>
+											<?php if (($v['User']['id'] == $this->Session->read('Auth.User.id')) || ($v['User']['group_id'] == 1)) { ?>
 												<div class="dropdown" style="z-index: 1; position: absolute; top: 5px; right: 5px; cursor: pointer;">
 													<i class="fas fa-chevron-circle-down dropbtnprofile" style="color: #b8403f; font-size: 22px;"></i>
 
