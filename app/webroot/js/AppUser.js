@@ -31,45 +31,7 @@ var habilitaBotoesUser = function() {
 		let id = $(this).attr("idDelete");
 		let url = `/posts/delete/${id}`;
 
-		Swal.fire({
-            title: 'Você deseja deletar este post?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#218838',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, quero deletar!',
-            cancelButtonText: 'Cancelar',
-		}).then((result) => {
-			if (result.value) {
-				$.ajax({
-					type: 'POST',
-					url: url,
-					dataType: "JSON",
-					success: function (response) {
-						console.log(response);
-						const Toast = Swal.mixin({
-							toast: true,
-							position: 'top-end',
-							showConfirmButton: false,
-							timer: 3000,
-							timerProgressBar: true,
-						});
-
-						if(!response.error){
-							Toast.fire({
-								icon: 'success',
-								title: response.msg,
-							});
-						}else{
-							Toast.fire({
-								icon: 'error',
-								title: response.msg,
-							});
-						}
-					},
-				});
-			}
-		});
+		deletePost(url);
 	});
 }
 
@@ -77,6 +39,44 @@ var loadEventosUser = function() {
 
 }
 
-function loadChangePhoto() {
+function deletePost(url) {
+	Swal.fire({
+		title: 'Você deseja deletar este post?',
+		icon: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#218838',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Sim, quero deletar!',
+		cancelButtonText: 'Cancelar',
+	}).then((result) => {
+		if (result.value) {
+			$.ajax({
+				type: 'POST',
+				url: url,
+				dataType: "JSON",
+				success: function (response) {
+					console.log(response);
+					const Toast = Swal.mixin({
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000,
+						timerProgressBar: true,
+					});
 
+					if(!response.error){
+						Toast.fire({
+							icon: 'success',
+							title: response.msg,
+						});
+					}else{
+						Toast.fire({
+							icon: 'error',
+							title: response.msg,
+						});
+					}
+				},
+			});
+		}
+	});
 };
