@@ -54,7 +54,7 @@
 								</div>
 							</div>
 						</div>
-					<?php }?>
+					<?php } ?>
 				</div>
 				<?php echo $this->element('pagination') ?>
 				<?php } else { ?>

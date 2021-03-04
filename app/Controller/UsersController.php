@@ -23,32 +23,32 @@ class UsersController extends AppController
         $this->set(compact('dados', 'postAuthor'));
     }
 
-	public function changePhoto($id)
-    {
-        if (!empty($_FILES)) {
-            $parts = pathinfo($_FILES['file']['name']);
-            $tempFile = $_FILES['file']['tmp_name'];
-            $targetPath = 'img/upload/avatar/';
-            $newFileName = $id . '.' . strtolower($parts['extension']);
-            $targetFile = $targetPath . $newFileName;
-            $error = 0;
+	// public function changePhoto($id)
+    // {
+    //     if (!empty($_FILES)) {
+    //         $parts = pathinfo($_FILES['file']['name']);
+    //         $tempFile = $_FILES['file']['tmp_name'];
+    //         $targetPath = 'img/upload/avatar/';
+    //         $newFileName = $id . '.' . strtolower($parts['extension']);
+    //         $targetFile = $targetPath . $newFileName;
+    //         $error = 0;
 
-            if (move_uploaded_file($tempFile, $targetFile)) {
-                $data['User']['id'] = $id;
-                $data['User']['photo'] = strtolower($newFileName);
-                $data['User']['modified'] = date('Y-m-d H:i:s');
+    //         if (move_uploaded_file($tempFile, $targetFile)) {
+    //             $data['User']['id'] = $id;
+    //             $data['User']['photo'] = strtolower($newFileName);
+    //             $data['User']['modified'] = date('Y-m-d H:i:s');
 
-                $this->User->id = $id;
-                $this->User->save($data, false);
-                $this->Session->write('Auth.User.photo', $data['User']['photo']);
-                $error = 0;
-            } else {
-                $error = 1;
-            }
-            echo json_encode(compact('error'));
-            exit;
-        }
-    }
+    //             $this->User->id = $id;
+    //             $this->User->save($data, false);
+    //             $this->Session->write('Auth.User.photo', $data['User']['photo']);
+    //             $error = 0;
+    //         } else {
+    //             $error = 1;
+    //         }
+    //         echo json_encode(compact('error'));
+    //         exit;
+    //     }
+    // }
 
 	public function schedule()
     {

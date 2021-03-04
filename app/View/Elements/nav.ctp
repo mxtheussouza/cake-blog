@@ -33,6 +33,10 @@
 
 									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'add'], ['class' => 'nav-link']); ?>
 
+									<?php if  ($this->Session->read('Auth.User.group_id') == 1) {
+										echo $this->Html->link('Usuários', ['controller' => 'users', 'action' => 'schedule'], ['class' => 'nav-link']);
+									} ?>
+
 									<?php echo $this->Html->link("Sair", ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link', 'id' => 'btnLogout']); ?>
 								</div>
 							</div>

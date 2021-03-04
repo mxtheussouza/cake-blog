@@ -1,7 +1,6 @@
 $(document).ready(function() {
 	habilitaBotoesNav();
 	loadEventosNav();
-	darkMode();
 });
 
 var habilitaBotoesNav = function() {
@@ -29,56 +28,60 @@ var habilitaBotoesNav = function() {
 	$('#btnLogout').click(function(e) {
 		e.preventDefault();
 
-		Swal.fire({
-            title: 'Você deseja sair?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#218838',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, quero sair!',
-            cancelButtonText: 'Cancelar',
-		}).then((result) => {
-			if (result.value) {
-				$.ajax({
-					url: '/logout',
-					success: function () {
-						location.reload();
-					},
-				});
-			}
-		});
+		logoutUser();
 	});
 }
 
 var loadEventosNav = function() {
-	darkMode();
+	// darkMode();
 }
 
-function darkMode(){
-    let buttonChange = $('.theme-button');
-    let contents = $('body, .wrapthumbnail, .wrapcontent');
-
-    buttonChange.click(() => {
-        setDarkMode = localStorage.getItem('dark-theme');
-
-        if (setDarkMode !== 'on') {
-            contents.toggleClass('dark-theme');
-            buttonChange.toggleClass('fa-toggle-on');
-
-            setDarkMode = localStorage.setItem('dark-theme', 'on');
-            setDarkMode = localStorage.setItem('fa-toggle-on', 'on');
-        } else {
-            contents.toggleClass('dark-theme');
-            buttonChange.toggleClass('fa-toggle-on');
-
-            setDarkMode = localStorage.setItem('dark-theme', null);
-            setDarkMode = localStorage.setItem('fa-toggle-on', null);
-        }
-    });
-
-    let setDarkMode = localStorage.getItem('dark-theme');
-    if (setDarkMode === 'on') {
-        contents.toggleClass('dark-theme');
-        buttonChange.toggleClass('fa-toggle-on');
-    }
+function logoutUser() {
+	Swal.fire({
+		title: 'Você deseja sair?',
+		icon: 'question',
+		showCancelButton: true,
+		confirmButtonColor: '#218838',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Sim, quero sair!',
+		cancelButtonText: 'Cancelar',
+	}).then((result) => {
+		if (result.value) {
+			$.ajax({
+				url: '/logout',
+				success: function () {
+					location.reload();
+				},
+			});
+		}
+	});
 }
+
+// function darkMode() {
+//     let buttonChange = $('.theme-button');
+//     let contents = $('body, .wrapthumbnail, .wrapcontent');
+
+//     buttonChange.click(() => {
+//         setDarkMode = localStorage.getItem('dark-theme');
+
+//         if (setDarkMode !== 'on') {
+//             contents.toggleClass('dark-theme');
+//             buttonChange.toggleClass('fa-toggle-on');
+
+//             setDarkMode = localStorage.setItem('dark-theme', 'on');
+//             setDarkMode = localStorage.setItem('fa-toggle-on', 'on');
+//         } else {
+//             contents.toggleClass('dark-theme');
+//             buttonChange.toggleClass('fa-toggle-on');
+
+//             setDarkMode = localStorage.setItem('dark-theme', null);
+//             setDarkMode = localStorage.setItem('fa-toggle-on', null);
+//         }
+//     });
+
+//     let setDarkMode = localStorage.getItem('dark-theme');
+//     if (setDarkMode === 'on') {
+//         contents.toggleClass('dark-theme');
+//         buttonChange.toggleClass('fa-toggle-on');
+//     }
+// }

@@ -11,10 +11,10 @@ class Post extends AppModel
 
     public $validate = [
         'title' => [
-            'rule' => 'notEmpty'
+            'rule' => 'notBlank'
         ],
         'content' => [
-            'rule' => 'notEmpty'
+            'rule' => 'notBlank'
         ]
     ];
 }

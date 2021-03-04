@@ -17,7 +17,7 @@ var loadEventosBlog = function() {
 
 }
 
-function blogsPaginate(url){
+function blogsPaginate(url) {
     $.ajax({
         type: 'GET',
         url: url,

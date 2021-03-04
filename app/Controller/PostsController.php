@@ -23,8 +23,7 @@ class PostsController extends AppController
         if ($this->request->is('post')) {
             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
             if ($this->Post->save($this->request->data)) {
-                $this->Flash->success('Seu post foi salvo.');
-                $this->redirect(['action' => 'index']);
+                $this->redirect(['controller' => 'blogs', 'action' => 'index']);
             }
         }
     }
