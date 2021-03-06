@@ -41,12 +41,12 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<?php echo $this->Html->script('AppUser');?>
 
 	<script> var baseUrl = window.location.origin; </script>
-	<script>
+	<!-- <script>
     	BalloonEditor
         .create( document.querySelector( '#editor' ) )
         .catch( error => {
             console.error( error );
         });
-	</script>
+	</script> -->
 </body>
 </html>
