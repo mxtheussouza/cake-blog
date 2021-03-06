@@ -37,5 +37,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<?php echo $this->Html->script('AppBlog');?>
 	<?php echo $this->Html->script('AppNav');?>
 	<?php echo $this->Html->script('AppUser');?>
+
+	<script> var baseUrl = window.location.origin; </script>
 </body>
 </html>

@@ -14,6 +14,6 @@ class AppController extends Controller
     ];
 
     function beforeFilter() {
-        $this->Auth->allow('index', 'post', 'login', 'add', 'register', 'logout', 'profile', 'schedule', 'delete');
+        $this->Auth->allow('index', 'login', 'register', 'logout', 'add', 'edit', 'delete', 'deleteUser', 'post', 'profile', 'schedule');
     }
 }

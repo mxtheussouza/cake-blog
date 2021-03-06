@@ -37,6 +37,8 @@
 										echo $this->Html->link('Usuários', ['controller' => 'users', 'action' => 'schedule'], ['class' => 'nav-link']);
 									} ?>
 
+									<div class="dropdown-divider"></div>
+
 									<?php echo $this->Html->link("Sair", ['controller' => 'users', 'action' => 'logout'], ['class' => 'nav-link', 'id' => 'btnLogout']); ?>
 								</div>
 							</div>

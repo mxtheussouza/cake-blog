@@ -4,7 +4,7 @@
 
 		<div class="author-content" style="margin-top: 4rem;">
 			<div class="container">
-				<div class="author-info">
+				<div class="author-info" style="position: relative;">
 					<div class="user-image">
 						<?php
 						if (empty($dados['User']['photo'])) {
@@ -19,6 +19,20 @@
 						<span class="nick"> @<?php echo $dados['User']['nickname'];?> </span>
 						<p> <?php echo $dados['Group']['name'];?> </p>
 					</div>
+
+					<?php if ($dados['User']['id'] == $this->Session->read('Auth.User.id')) { ?>
+						<div class="dropdown" style="position: absolute; top: 5px; right: 5px;">
+							<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: transparent; border: none; color: #b8403f; font-size: 22px;">
+								<i class="fas fa-cog"></i>
+							</button>
+
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a idEditUser="<?php echo $dados['User']['id']; ?>" class="dropdown-item btnEditUser" href="#">Editar Conta</a>
+								<div class="dropdown-divider"></div>
+								<a idDeleteUser="<?php echo $dados['User']['id']; ?>" class="dropdown-item btnDeleteUser" href="#">Deletar Conta</a>
+							</div>
+						</div>
+					<?php } ?>
 				</div>
 
 				<hr>

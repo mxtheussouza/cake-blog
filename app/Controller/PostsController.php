@@ -28,6 +28,19 @@ class PostsController extends AppController
         }
     }
 
+	// public function edit($id = null)
+	// {
+	// 	$this->Post->id = $id;
+
+	// 	if ($this->request->is('get')) {
+	// 		$this->request->data = $this->Post->findById($id);
+	// 	} else {
+	// 		if ($this->Post->save($this->request->data)) {
+	// 			$this->redirect(array('action' => 'index'));
+	// 		}
+	// 	}
+	// }
+
 	function delete($id)
 	{
 		$this->layout = "ajax";
