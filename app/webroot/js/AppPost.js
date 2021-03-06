@@ -16,7 +16,7 @@ var habilitaBotoesPost = function() {
             cancelButtonText: 'Cancelar',
             confirmButtonColor: '#218838',
 			cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, quero salvar!',
+            confirmButtonText: 'Sim, quero postar!',
 		}).then((result) => {
             if (result.value) {
 				addPost(url);
