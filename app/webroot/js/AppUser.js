@@ -34,7 +34,7 @@ var habilitaBotoesUser = function() {
 		e.preventDefault();
 
 		let id = $(this).attr("idDeleteUser");
-		let url = `/users/deleteUser/${id}`;
+		let url = `/users/delete/${id}`;
 
 		deleteUser(url);
 	});
@@ -283,10 +283,10 @@ function loadModal(url, callback = null) {
 	);
 
     $("#modalContent").load(url + " #content >", function() {
-      if (callback != null) {
-        callback();
-	}
+		if (callback != null) {
+        	callback();
+		}
 
-      habilitaBotoesUser();
+		habilitaBotoesUser();
     });
 }

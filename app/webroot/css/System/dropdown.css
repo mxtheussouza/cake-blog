@@ -41,3 +41,7 @@
 .dropdown-content-profile a:hover {background-color: #ddd}
 
 .show {display:block;}
+
+.dropdown-item.active, .dropdown-item:active {
+	background-color: #b8403f !important;
+}

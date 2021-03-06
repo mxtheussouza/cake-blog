@@ -18,6 +18,15 @@ img {
     margin: 0 auto;
 }
 
+.welcome-title {
+	text-align: center;
+	font-weight: 700;
+	font-size: 4rem;
+	text-transform: uppercase;
+	margin: 1rem;
+	color: #333333;
+}
+
 nav header {
     display: flex;
     align-items: center;

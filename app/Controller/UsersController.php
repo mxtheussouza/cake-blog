@@ -27,8 +27,6 @@ class UsersController extends AppController
 
 	public function logout()
 	{
-		$this->Session->delete('Auth');
-
 		$this->redirect($this->Auth->logout());
 	}
 
@@ -91,7 +89,7 @@ class UsersController extends AppController
 		$this->response->body(json_encode($response));
 	}
 
-	public function deleteUser($id = null)
+	public function delete($id = null)
 	{
 		$this->layout = "ajax";
 		$this->autoRender = false;

@@ -102,6 +102,11 @@
 		display: block;
 	}
 
+	.welcome-title {
+		font-size: 2.2rem !important;
+	}
+
+
     .author-content .author-info div span {
         display: block;
         font-size: 2rem !important;

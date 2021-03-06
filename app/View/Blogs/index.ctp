@@ -4,9 +4,9 @@
 
 		<main class="wrap" style="padding: 1rem;">
 			<?php if ($this->Session->read('Auth.User')) { ?>
-				<h1 style="text-align: center; font-weight: 700; font-size: 4rem; text-transform: uppercase; margin: 1rem; color: #333333;">Bem vindo, <span style="color: #b8403f"><?php echo $this->Session->read('Auth.User.name'); ?></span>, ao CakeBLOG!</h1>
+				<h1 class="welcome-title">Bem vindo, <span style="color: #b8403f"><?php echo $this->Session->read('Auth.User.name'); ?></span>, ao CakeBLOG!</h1>
 			<?php } else { ?>
-				<h1 style="text-align: center; font-weight: 700; font-size: 4rem; text-transform: uppercase; margin: 1rem; color: #333333;">Bem vindo ao CakeBLOG!</h1>
+				<h1 class="welcome-title">Bem vindo ao CakeBLOG!</h1>
 			<?php } ?>
 		</main>
 
