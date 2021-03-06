@@ -21,7 +21,7 @@ function blogsPaginate(url) {
     $.ajax({
         type: 'GET',
         url: url,
-        dataType: 'html',
+        dataType: 'HTML',
         beforeSend: function() {
         	$(".content-blog").html(`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="../img/loading.gif"/> </div>`);
         },

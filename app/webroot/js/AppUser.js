@@ -86,8 +86,10 @@ function updatePost(id) {
 		dataType: 'JSON',
 		data: dados,
         beforeSend: function () {
+            $('.closePostEdit').click();
             $('input').attr('disabled', true);
             $('button').attr('disabled', true);
+			$('.global-section').html(`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="/img/loading.gif"/> </div>`);
         },
         success: function (response) {
             if (!response.error) {
@@ -96,6 +98,8 @@ function updatePost(id) {
 					title: response.msg,
 				});
 			}
+
+			getDados();
         },
         error: function (response) {
 			Toast.fire({
@@ -106,7 +110,6 @@ function updatePost(id) {
         complete: function () {
             $('input').attr('disabled', false);
             $('button').attr('disabled', false);
-            $('.closePostEdit').click();
         }
     });
 }
@@ -196,8 +199,10 @@ function updateUser(id) {
 		dataType: 'JSON',
 		data: dados,
         beforeSend: function () {
+            $('.closeUserEdit').click();
             $('input').attr('disabled', true);
             $('button').attr('disabled', true);
+			$('.global-section').html(`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="/img/loading.gif"/> </div>`);
         },
         success: function (response) {
             if (!response.error) {
@@ -206,6 +211,8 @@ function updateUser(id) {
 					title: response.msg,
 				});
 			}
+
+			getDados();
         },
         error: function (response) {
 			Toast.fire({
@@ -216,7 +223,6 @@ function updateUser(id) {
         complete: function () {
             $('input').attr('disabled', false);
             $('button').attr('disabled', false);
-            $('.closeUserEdit').click();
         }
     });
 }
@@ -268,6 +274,24 @@ function deleteUser(url) {
 			});
 		}
 	});
+}
+
+function getDados() {
+    let url = window.location.href;
+
+	$.ajax({
+        type: 'GET',
+        url: url,
+        dataType: 'HTML',
+        success: function(data) {
+            $('.global-section').html(($(data).find('.global-section > ')));
+
+            habilitaBotoesUser();
+        },
+        error: function() {
+            console.log("Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado");
+        }
+    });
 }
 
 function loadModal(url, callback = null) {
