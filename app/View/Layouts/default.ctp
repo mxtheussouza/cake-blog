@@ -32,6 +32,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<?php echo $this->Html->script('Bootstrap/fontawesome');?>
 	<?php echo $this->Html->script('SweetAlert/sweetalert2.all.min');?>
 	<?php echo $this->Html->script('Dropzone/dropzone.min');?>
+	<?php echo $this->Html->script('CKEditor/ckeditor');?>
 
 	<!-- SCRIPTS -->
 	<?php echo $this->Html->script('AppBlog');?>
@@ -40,5 +41,12 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<?php echo $this->Html->script('AppUser');?>
 
 	<script> var baseUrl = window.location.origin; </script>
+	<script>
+    	BalloonEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        });
+	</script>
 </body>
 </html>

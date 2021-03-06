@@ -26,7 +26,11 @@ var habilitaBotoesPost = function() {
 }
 
 var loadEventosPost = function() {
-
+	$('#PostContent').keyup(function() {
+		while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+			$(this).height($(this).height()+1);
+		};
+	});
 }
 
 function addPost(url) {

@@ -27,6 +27,8 @@ class UsersController extends AppController
 
 	public function logout()
 	{
+		$this->Session->delete('Auth');
+
 		$this->redirect($this->Auth->logout());
 	}
 

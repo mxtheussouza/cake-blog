@@ -27,3 +27,7 @@ html, body {
     font-weight: 700;
     color: #111111;
 }
+
+textarea {
+	resize: none !important;
+}
