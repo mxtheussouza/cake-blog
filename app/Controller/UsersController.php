@@ -59,24 +59,37 @@ class UsersController extends AppController
         $this->set('users', $this->paginate());
     }
 
-	// public function edit($id = null)
-	// {
-    //     $this->User->id = $id;
-    //     if (!$this->User->exists()) {
-    //         throw new NotFoundException(__('Invalid user'));
-    //     }
-    //     if ($this->request->is('post') || $this->request->is('put')) {
-    //         if ($this->User->save($this->request->data)) {
-    //             $this->Flash->success(__('The user has been saved'));
-    //             $this->redirect(array('action' => 'index'));
-    //         } else {
-    //             $this->Flash->error(__('The user could not be saved. Please, try again.'));
-    //         }
-    //     } else {
-    //         $this->request->data = $this->User->findById($id);
-    //         unset($this->request->data['User']['password']);
-    //     }
-    // }
+	public function edit($id = null)
+	{
+        $this->User->id = $id;
+
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Usuário Inválido'));
+        }
+
+		if ($this->request->is('get')) {
+			$this->request->data = $this->User->findById($id);
+            unset($this->request->data['User']['password']);
+		}
+    }
+
+	public function update($id = null)
+	{
+		$this->layout = "ajax";
+		$this->autoRender = false;
+
+		$response['error'] = true;
+		$response['msg'] = "Não foi possível atualizar o usuário.";
+
+		if ($this->request->is('post') || $this->request->is('put')) {
+            if ($this->User->save($this->request->data)) {
+				$response['error'] = false;
+				$response['msg'] = "Usuário atualizado!";
+			}
+        }
+
+		$this->response->body(json_encode($response));
+	}
 
 	public function deleteUser($id = null)
 	{

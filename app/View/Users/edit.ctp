@@ -3,28 +3,32 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" id="content">
       <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLongTitle" style="color: #333333; font-weight: 700;">Editar Post</h1>
+        <h1 class="modal-title" id="exampleModalLongTitle" style="color: #333333; font-weight: 700;">Editar Usuário</h1>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-	  <?php echo $this->Form->create('Post');?>
+	  <?php echo $this->Form->create('User');?>
 		<div class="modal-body">
 			<div class="form-group">
 				<?php echo $this->Form->input('id', ['type' => 'hidden']); ?>
 			</div>
 
 			<div class="form-group">
-				<?php echo $this->Form->input('title', ['label' => '', 'class' => 'form-control',  'tabindex' => '1', 'placeholder' => 'Título do Post']); ?>
+				<?php echo $this->Form->input('username', ['label' => '', 'class' => 'form-control']); ?>
 			</div>
 
 			<div class="form-group">
-				<?php echo $this->Form->input('content', ['label' => '', 'class' => 'form-control',  'tabindex' => '1', 'placeholder' => 'Conteúdo do Post', 'rows' => '3']); ?>
+				<?php echo $this->Form->input('name', ['label' => '', 'class' => 'form-control']); ?>
+			</div>
+
+			<div class="form-group">
+				<?php echo $this->Form->input('nickname', ['label' => '', 'class' => 'form-control']); ?>
 			</div>
 		</div>
 
 		<div class="modal-footer">
-			<button type="button" class="btn btn-secondary closePostEdit" data-dismiss="modal">Fechar</button>
+			<button type="button" class="btn btn-secondary closeUserEdit" data-dismiss="modal">Fechar</button>
 			<button type="submit" class="btn btn-danger" style="background-color: #b8403f;">Salvar</button>
 		</div>
 	  <?php echo $this->Form->end();?>

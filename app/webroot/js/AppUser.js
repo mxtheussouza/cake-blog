@@ -22,6 +22,14 @@ var habilitaBotoesUser = function() {
 		deletePost(url, element);
 	});
 
+	$('.btnEditUser').click(function(e) {
+		e.preventDefault();
+
+		let id = $(this).attr("idEditUser");
+
+		editUser(id);
+	});
+
 	$('.btnDeleteUser').click(function(e) {
 		e.preventDefault();
 
@@ -100,8 +108,8 @@ function updatePost(id) {
             $('button').attr('disabled', false);
             $('.closePostEdit').click();
         }
-    })
-  }
+    });
+}
 
 function deletePost(url, element) {
 	const Toast = Swal.mixin({
@@ -146,8 +154,71 @@ function deletePost(url, element) {
 	});
 }
 
-function editUser() {
+function editUser(id) {
+	let url = `/users/edit/${id}`;
 
+	loadModal(url, function() {
+		$('#UserEditForm').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Tem certeza que deseja atualizar esse usuário?',
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#218838',
+				cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, quero atualizar!'
+            }).then((result) => {
+                if (result.value) {
+                    updateUser(id);
+                }
+            });
+        });
+	});
+}
+
+function updateUser(id) {
+    let dados = $('#UserEditForm').serialize();
+    let url = `/users/update/${id}`;
+
+	const Toast = Swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+	});
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+		dataType: 'JSON',
+		data: dados,
+        beforeSend: function () {
+            $('input').attr('disabled', true);
+            $('button').attr('disabled', true);
+        },
+        success: function (response) {
+            if (!response.error) {
+				Toast.fire({
+					icon: 'success',
+					title: response.msg,
+				});
+			}
+        },
+        error: function (response) {
+			Toast.fire({
+				icon: 'error',
+				title: response.msg,
+			});
+        },
+        complete: function () {
+            $('input').attr('disabled', false);
+            $('button').attr('disabled', false);
+            $('.closeUserEdit').click();
+        }
+    });
 }
 
 function deleteUser(url) {
@@ -204,11 +275,11 @@ function loadModal(url, callback = null) {
 
     modal.modal();
     modal.find("#modalContent").html("");
-
-    modal
-	.find("#modalContent")
-	.append(
-	'<section> <div class="section-body alert alert-callout" style="background-color: #b8403f;"  role="alert"> <strong style="color:white; ">Carregando...</strong> <i class="fa fa-spinner fa-spin" style="color:white;"></i></div></section>'
+    modal.find("#modalContent").append(
+		`<div class="section-body alert alert-callout" style="background-color: #b8403f; margin:0;" role="alert">
+			<strong style="color: white;">Carregando...</strong>
+			<i class="fa fa-spinner fa-spin" style="color: white;"></i>
+		</div>`
 	);
 
     $("#modalContent").load(url + " #content >", function() {

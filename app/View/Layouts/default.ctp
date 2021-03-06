@@ -28,8 +28,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog modal-lg">
 			<!-- Modal content-->
-			<div id="modalContent" class="modal-content" style="width:auto; margin:auto; max-width:667px;">
-			</div>
+			<div id="modalContent" class="modal-content" style="width:auto; margin:auto; max-width:667px;"></div>
 		</div>
 	</div>
 
