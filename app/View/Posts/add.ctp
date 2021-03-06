@@ -2,7 +2,7 @@
 	<div class="global-section">
 		<?php echo $this->element('nav') ?>
 
-		<div style="display: flex;">
+		<div style="display: flex; padding: 1rem;">
 			<div style="margin: 0 auto;">
 				<div>
 					<h1 style="color: #333333; font-weight: 700;">Escreva um blog...</h1>

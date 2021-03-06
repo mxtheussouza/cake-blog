@@ -296,3 +296,18 @@ span.post-read-more a {
 	border: 1px solid #b8403f;
 	margin-bottom: 1rem;
 }
+
+/* DROPDOWN */
+.dropdown-options {
+	display: none !important;
+}
+
+.content-blog .card:hover > .dropdown-options {
+	display: block !important;
+}
+
+@media (max-width: 767px) {
+	.dropdown-options {
+		display: block !important;
+	}
+}

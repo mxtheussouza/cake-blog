@@ -12,7 +12,7 @@
 				<?php if (!empty($dados)) {  ?>
 					<?php foreach ($dados as $k => $v) { ?>
 						<div class="col-md-6 col-lg-6 col-sm-6 padding-card">
-							<div class="card" id="">
+							<div class="card">
 								<div class="row">
 									<div class="col-md-5 wrapthumbnail">
 										<a href="/posts/post/<?php echo $v['Post']['id']; ?>">

@@ -35,15 +35,17 @@
 						<?php if (!empty($postAuthor)) { ?>
 							<div class="row">
 								<?php foreach($postAuthor as $k => $v){  ?>
-									<div class="col-md-6 col-lg-6 col-sm-6 padding-card">
+									<div class="col-md-6 col-lg-6 col-sm-6 padding-card card-container">
 										<div class="card" style="position: relative;">
 											<?php if (($v['User']['id'] == $this->Session->read('Auth.User.id')) || ($this->Session->read('Auth.User.group_id') == 1)) { ?>
-												<div class="dropdown" style="z-index: 1; position: absolute; top: 5px; right: 5px; cursor: pointer;">
-													<i class="fas fa-chevron-circle-down dropbtnprofile" style="color: #b8403f; font-size: 22px;"></i>
+												<div class="dropdown dropdown-options" style="z-index: 1; position: absolute; top: 5px; right: 5px;">
+													<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #b8403f;">
+														<i class="fas fa-chevron-circle-down"></i>
+													</button>
 
-													<div id="myDropdownProfile" class="dropdown-content-profile" style="right: 5%;">
-														<a idEdit="<?php echo $v['Post']['id']; ?>" class="nav-link btnEditPost"> Editar </a>
-														<a idDelete="<?php echo $v['Post']['id']; ?>" class="nav-link btnDeletePost"> Deletar </a>
+													<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+														<a idEdit="<?php echo $v['Post']['id']; ?>" class="dropdown-item btnEditPost" href="#">Editar</a>
+														<a idDelete="<?php echo $v['Post']['id']; ?>" class="dropdown-item btnDeletePost" href="#">Deletar</a>
 													</div>
 												</div>
 											<?php } ?>

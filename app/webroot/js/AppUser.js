@@ -4,34 +4,14 @@ $(document).ready(function() {
 });
 
 var habilitaBotoesUser = function() {
-	$('.dropbtnprofile').click(function(e) {
-		e.preventDefault();
-
-		$('#myDropdownProfile').toggleClass('show');
-	});
-
-	$(window).click(function(e) {
-		if (!e.target.matches('.dropbtnprofile')) {
-			let dropdowns = $('.dropdown-content-profile');
-			let i;
-
-			for (i = 0; i < dropdowns.length; i++) {
-				let openDropdown = dropdowns[i];
-
-				if (openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
-			}
-		}
-	});
-
 	$('.btnDeletePost').click(function(e) {
 		e.preventDefault();
 
+		let element = $(this);
 		let id = $(this).attr("idDelete");
 		let url = `/posts/delete/${id}`;
 
-		deletePost(url);
+		deletePost(url, element);
 	});
 }
 
@@ -39,7 +19,7 @@ var loadEventosUser = function() {
 
 }
 
-function deletePost(url) {
+function deletePost(url, element) {
 	Swal.fire({
 		title: 'Você deseja deletar este post?',
 		icon: 'question',
@@ -53,9 +33,9 @@ function deletePost(url) {
 			$.ajax({
 				type: 'POST',
 				url: url,
-				dataType: "JSON",
+				dataType: 'JSON',
 				success: function (response) {
-					console.log(response);
+					element.parents('.card-container').remove();
 					const Toast = Swal.mixin({
 						toast: true,
 						position: 'top-end',

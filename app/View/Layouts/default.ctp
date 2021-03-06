@@ -27,6 +27,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 
 	<!-- LIBS -->
 	<?php echo $this->Html->script('Bootstrap/jquery-3.5.1.min');?>
+	<?php echo $this->Html->script('Bootstrap/popper.min');?>
 	<?php echo $this->Html->script('Bootstrap/bootstrap.min');?>
 	<?php echo $this->Html->script('Bootstrap/fontawesome');?>
 	<?php echo $this->Html->script('SweetAlert/sweetalert2.all.min');?>

@@ -23,11 +23,11 @@ function blogsPaginate(url) {
         url: url,
         dataType: 'html',
         beforeSend: function(){
-        $(".content-blog").html(`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="../img/loading.gif"/> </div>`);
+        	$(".content-blog").html(`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="../img/loading.gif"/> </div>`);
         },
         success:function(data){
             $('.content-blog').html(($(data).find('.content-blog > ')));
-            habilitaBotoes();
+            habilitaBotoesBlog();
         },
         error:function(){
             console.log("Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado");

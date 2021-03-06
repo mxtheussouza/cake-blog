@@ -31,6 +31,7 @@ class PostsController extends AppController
 	function delete($id)
 	{
 		$this->layout = "ajax";
+		$this->autoRender = false;
 
 		$response['error'] = true;
 		$response['msg'] = "Não foi possível excluir o registro";
