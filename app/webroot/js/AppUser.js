@@ -4,6 +4,14 @@ $(document).ready(function() {
 });
 
 var habilitaBotoesUser = function() {
+	$('.btnEditPost').click(function(e) {
+		e.preventDefault();
+
+		let id = $(this).attr("idEdit");
+
+		editPost(id);
+	});
+
 	$('.btnDeletePost').click(function(e) {
 		e.preventDefault();
 
@@ -27,6 +35,73 @@ var habilitaBotoesUser = function() {
 var loadEventosUser = function() {
 
 }
+
+function editPost(id) {
+	let url = `/posts/edit/${id}`;
+
+	loadModal(url, function() {
+		$('#PostEditForm').submit(function(e) {
+            e.preventDefault();
+
+            Swal.fire({
+                title: 'Tem certeza que deseja atualizar esse post?',
+                icon: 'question',
+                showCancelButton: true,
+                cancelButtonText: 'Cancelar',
+                confirmButtonColor: '#218838',
+				cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, quero atualizar!'
+            }).then((result) => {
+                if (result.value) {
+                    updatePost(id);
+                }
+            });
+        });
+	});
+}
+
+function updatePost(id) {
+    let dados = $('#PostEditForm').serialize();
+    let url = `/posts/update/${id}`;
+
+	const Toast = Swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+	});
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+		dataType: 'JSON',
+		data: dados,
+        beforeSend: function () {
+            $('input').attr('disabled', true);
+            $('button').attr('disabled', true);
+        },
+        success: function (response) {
+            if (!response.error) {
+				Toast.fire({
+					icon: 'success',
+					title: response.msg,
+				});
+			}
+        },
+        error: function (response) {
+			Toast.fire({
+				icon: 'error',
+				title: response.msg,
+			});
+        },
+        complete: function () {
+            $('input').attr('disabled', false);
+            $('button').attr('disabled', false);
+            $('.closePostEdit').click();
+        }
+    })
+  }
 
 function deletePost(url, element) {
 	const Toast = Swal.mixin({
@@ -69,6 +144,10 @@ function deletePost(url, element) {
 			});
 		}
 	});
+}
+
+function editUser() {
+
 }
 
 function deleteUser(url) {
@@ -118,4 +197,25 @@ function deleteUser(url) {
 			});
 		}
 	});
+}
+
+function loadModal(url, callback = null) {
+    let modal = $("#myModal");
+
+    modal.modal();
+    modal.find("#modalContent").html("");
+
+    modal
+	.find("#modalContent")
+	.append(
+	'<section> <div class="section-body alert alert-callout" style="background-color: #b8403f;"  role="alert"> <strong style="color:white; ">Carregando...</strong> <i class="fa fa-spinner fa-spin" style="color:white;"></i></div></section>'
+	);
+
+    $("#modalContent").load(url + " #content >", function() {
+      if (callback != null) {
+        callback();
+	}
+
+      habilitaBotoesUser();
+    });
 }

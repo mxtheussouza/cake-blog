@@ -25,6 +25,14 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<?php echo $this->Flash->render(); ?>
 	<?php echo $this->fetch('content'); ?>
 
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<!-- Modal content-->
+			<div id="modalContent" class="modal-content" style="width:auto; margin:auto; max-width:667px;">
+			</div>
+		</div>
+	</div>
+
 	<!-- LIBS -->
 	<?php echo $this->Html->script('Bootstrap/jquery-3.5.1.min');?>
 	<?php echo $this->Html->script('Bootstrap/popper.min');?>

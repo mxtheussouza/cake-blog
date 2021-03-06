@@ -41,20 +41,32 @@ class PostsController extends AppController
 		$this->response->body(json_encode($response));
     }
 
-	// public function edit($id = null)
-	// {
-	// 	$this->Post->id = $id;
+	public function edit($id = null)
+	{
+		$this->Post->id = $id;
 
-	// 	if ($this->request->is('get')) {
-	// 		$this->request->data = $this->Post->findById($id);
-	// 	} else {
-	// 		if ($this->Post->save($this->request->data)) {
-	// 			$this->redirect(array('action' => 'index'));
-	// 		}
-	// 	}
-	// }
+		if ($this->request->is('get')) {
+			$this->request->data = $this->Post->findById($id);
+		}
+	}
 
-	function delete($id)
+	public function update($id = null)
+	{
+		$this->layout = "ajax";
+		$this->autoRender = false;
+
+		$response['error'] = true;
+		$response['msg'] = "Não foi possível atualizar o post.";
+
+		if ($this->Post->save($this->request->data)) {
+			$response['error'] = false;
+			$response['msg'] = "Post atualizado!";
+		}
+
+		$this->response->body(json_encode($response));
+	}
+
+	public function delete($id)
 	{
 		$this->layout = "ajax";
 		$this->autoRender = false;
