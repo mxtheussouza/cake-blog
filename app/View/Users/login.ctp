@@ -6,8 +6,7 @@
 	<div class="login-content">
 	<?php echo $this->Flash->render('auth'); ?>
 	<?php echo $this->Form->create('User');?>
-		<img src="img/upload/avatar/default.svg">
-		<h2 class="title">BEM VINDO</h2>
+		<h2 class="title">FAÇA O LOGIN!</h2>
 
 		<?php echo $this->Form->input('username', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'E-mail']); ?>
 
