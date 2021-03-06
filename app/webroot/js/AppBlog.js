@@ -4,11 +4,12 @@ $(document).ready(function() {
 });
 
 var habilitaBotoesBlog = function() {
-	$('.navigation > ul > li > a').click(function(e){
+	$('.navigation > ul > li > a').click(function(e) {
         e.preventDefault();
 
         let url = $(this).attr("href");
         $('html,body').scrollTop(0);
+
         blogsPaginate(url);
     });
 }

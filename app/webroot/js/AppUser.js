@@ -7,7 +7,7 @@ var habilitaBotoesUser = function() {
 	$('.btnEditPost').click(function(e) {
 		e.preventDefault();
 
-		let id = $(this).attr("idEdit");
+		let id = $(this).attr('idEdit');
 
 		editPost(id);
 	});
@@ -16,7 +16,7 @@ var habilitaBotoesUser = function() {
 		e.preventDefault();
 
 		let element = $(this);
-		let id = $(this).attr("idDelete");
+		let id = $(this).attr('idDelete');
 		let url = `/posts/delete/${id}`;
 
 		deletePost(url, element);
@@ -25,7 +25,7 @@ var habilitaBotoesUser = function() {
 	$('.btnEditUser').click(function(e) {
 		e.preventDefault();
 
-		let id = $(this).attr("idEditUser");
+		let id = $(this).attr('idEditUser');
 
 		editUser(id);
 	});
@@ -33,7 +33,7 @@ var habilitaBotoesUser = function() {
 	$('.btnDeleteUser').click(function(e) {
 		e.preventDefault();
 
-		let id = $(this).attr("idDeleteUser");
+		let id = $(this).attr('idDeleteUser');
 		let url = `/users/delete/${id}`;
 
 		deleteUser(url);
@@ -289,24 +289,24 @@ function getDados() {
             habilitaBotoesUser();
         },
         error: function() {
-            console.log("Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado");
+            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
         }
     });
 }
 
 function loadModal(url, callback = null) {
-    let modal = $("#myModal");
+    let modal = $('#myModal');
 
     modal.modal();
-    modal.find("#modalContent").html("");
-    modal.find("#modalContent").append(
+    modal.find('#modalContent').html('');
+    modal.find('#modalContent').append(
 		`<div class="section-body alert alert-callout" style="background-color: #b8403f; margin:0;" role="alert">
 			<strong style="color: white;">Carregando...</strong>
 			<i class="fa fa-spinner fa-spin" style="color: white;"></i>
 		</div>`
 	);
 
-    $("#modalContent").load(url + " #content >", function() {
+    $('#modalContent').load(url + ' #content >', function() {
 		if (callback != null) {
         	callback();
 		}
