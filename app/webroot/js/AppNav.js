@@ -50,7 +50,7 @@ function logoutUser() {
 			$.ajax({
 				url: '/logout',
 				success: function () {
-					location.reload();
+					window.location.href = '/';
 				},
 			});
 		}

@@ -32,6 +32,6 @@ CREATE TABLE groups (
 );
 
 INSERT INTO groups (name, created)
-    VALUES ('Develop', NOW());
+    VALUES ('Admin', NOW());
 INSERT INTO groups (name, created)
     VALUES ('Author', NOW());
