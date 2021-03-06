@@ -31,7 +31,7 @@
 								<div id="myDropdown" class="dropdown-content">
 									<?php echo $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'profile', $this->Session->read('Auth.User.id')], ['class' => 'nav-link']); ?>
 
-									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'add'], ['class' => 'nav-link']); ?>
+									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'write'], ['class' => 'nav-link']); ?>
 
 									<?php if  ($this->Session->read('Auth.User.group_id') == 1) {
 										echo $this->Html->link('Usuários', ['controller' => 'users', 'action' => 'schedule'], ['class' => 'nav-link']);

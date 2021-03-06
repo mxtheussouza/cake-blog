@@ -84,7 +84,7 @@ class UsersController extends AppController
         $this->User->id = $id;
 
 		$response['error'] = true;
-		$response['msg'] = "Não foi possível excluir o registro";
+		$response['msg'] = "Não foi possível excluir o registro.";
 
         if (!$this->User->exists()) {
             $response['error'] = true;
@@ -93,7 +93,7 @@ class UsersController extends AppController
 
         if ($this->User->delete()) {
             $response['error'] = false;
-			$response['msg'] = "Usuário excluído com sucesso";
+			$response['msg'] = "Usuário excluído com sucesso!";
         }
 
 		$this->response->body(json_encode($response));

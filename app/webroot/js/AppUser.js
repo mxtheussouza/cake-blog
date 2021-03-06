@@ -29,9 +29,17 @@ var loadEventosUser = function() {
 }
 
 function deletePost(url, element) {
+	const Toast = Swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+	});
+
 	Swal.fire({
 		title: 'Você deseja deletar este post?',
-		icon: 'question',
+		icon: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#218838',
 		cancelButtonColor: '#d33',
@@ -45,35 +53,36 @@ function deletePost(url, element) {
 				dataType: 'JSON',
 				success: function (response) {
 					element.parents('.card-container').remove();
-					const Toast = Swal.mixin({
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 3000,
-						timerProgressBar: true,
-					});
-
-					if(!response.error){
+					if (!response.error) {
 						Toast.fire({
 							icon: 'success',
 							title: response.msg,
 						});
-					}else{
-						Toast.fire({
-							icon: 'error',
-							title: response.msg,
-						});
 					}
 				},
+				error: function(response) {
+					Toast.fire({
+						icon: 'error',
+						title: response.msg,
+					});
+				}
 			});
 		}
 	});
 }
 
 function deleteUser(url) {
+	const Toast = Swal.mixin({
+		toast: true,
+		position: 'top-end',
+		showConfirmButton: false,
+		timer: 3000,
+		timerProgressBar: true,
+	});
+
 	Swal.fire({
 		title: 'Você deseja deletar este usuário?',
-		icon: 'question',
+		icon: 'warning',
 		showCancelButton: true,
 		confirmButtonColor: '#218838',
 		cancelButtonColor: '#d33',
@@ -86,25 +95,18 @@ function deleteUser(url) {
 				url: url,
 				dataType: 'JSON',
 				success: function (response) {
-					const Toast = Swal.mixin({
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 3000,
-						timerProgressBar: true,
-					});
-
-					if(!response.error){
+					if (!response.error) {
 						Toast.fire({
 							icon: 'success',
 							title: response.msg,
 						});
-					}else{
-						Toast.fire({
-							icon: 'error',
-							title: response.msg,
-						});
 					}
+				},
+				error: function(response) {
+					Toast.fire({
+						icon: 'error',
+						title: response.msg,
+					});
 				},
 				complete: function() {
 					if (window.location.href == `${baseUrl}/users/schedule`) {

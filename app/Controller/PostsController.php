@@ -16,16 +16,29 @@ class PostsController extends AppController
         $this->set(compact('dados'));
     }
 
-    public function add()
+	public function write()
     {
 		$this->layout = 'default';
+    }
+
+    public function add()
+    {
+		$this->layout = 'ajax';
+		$this->autoRender = false;
+
+		$response['error'] = true;
+		$response['msg'] = "Não foi possível postar o conteúdo.";
 
         if ($this->request->is('post')) {
             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
+
             if ($this->Post->save($this->request->data)) {
-                $this->redirect(['controller' => 'blogs', 'action' => 'index']);
+                $response['error'] = false;
+				$response['msg'] = "Postado com sucesso!";
             }
         }
+
+		$this->response->body(json_encode($response));
     }
 
 	// public function edit($id = null)
@@ -47,11 +60,11 @@ class PostsController extends AppController
 		$this->autoRender = false;
 
 		$response['error'] = true;
-		$response['msg'] = "Não foi possível excluir o registro";
+		$response['msg'] = "Não foi possível excluir o registro.";
 
 		if ($this->Post->delete($id)) {
 			$response['error'] = false;
-			$response['msg'] = "Registro excluído com sucesso";
+			$response['msg'] = "Registro excluído com sucesso!";
 		}
 
 		$this->response->body(json_encode($response));

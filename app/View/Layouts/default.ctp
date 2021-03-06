@@ -35,6 +35,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 
 	<!-- SCRIPTS -->
 	<?php echo $this->Html->script('AppBlog');?>
+	<?php echo $this->Html->script('AppPost');?>
 	<?php echo $this->Html->script('AppNav');?>
 	<?php echo $this->Html->script('AppUser');?>
 

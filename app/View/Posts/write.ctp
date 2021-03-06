@@ -18,7 +18,7 @@
 							<?php echo $this->Form->input('content', ['label' => '', 'class' => 'form-control',  'tabindex' => '1', 'placeholder' => 'Conteúdo do Post', 'rows' => '3']); ?>
 						</div>
 
-						<input type="submit" class="btn btn-danger" style="background-color: #b8403f;" value="Postar">
+						<button type="submit" class="btn btn-danger" style="background-color: #b8403f;">Postar</button>
 					<?php echo $this->Form->end();?>
 				</div>
 			</div>
