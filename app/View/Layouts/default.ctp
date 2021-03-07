@@ -38,7 +38,7 @@ $cakeDescription = __d('cake_dev', 'CakeBLOG');
 	<?php echo $this->Html->script('Bootstrap/bootstrap.min');?>
 	<?php echo $this->Html->script('Bootstrap/fontawesome');?>
 	<?php echo $this->Html->script('SweetAlert/sweetalert2.all.min');?>
-	<?php echo $this->Html->script('Dropzone/dropzone.min');?>
+	<?php echo $this->Html->script('Dropzone/dropzone');?>
 	<?php echo $this->Html->script('CKEditor/ckeditor');?>
 
 	<!-- SCRIPTS -->

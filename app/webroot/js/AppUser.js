@@ -38,6 +38,13 @@ var habilitaBotoesUser = function() {
 
 		deleteUser(url);
 	});
+
+	$('#btnChangePhoto label').popover( { html: true } );
+
+	$('#btnChangePhoto label').click(function() {
+		loadFormChangePhoto();
+	});
+
 }
 
 var loadEventosUser = function() {
@@ -212,6 +219,7 @@ function updateUser(id) {
 				});
 			}
 
+			loadChangePhoto();
 			getDados();
         },
         error: function (response) {
@@ -313,4 +321,55 @@ function loadModal(url, callback = null) {
 
 		habilitaBotoesUser();
     });
+}
+
+function loadFormChangePhoto() {
+	if (typeof $("#UserPhotoForm")[0].dropzone != 'undefined') {
+		return false;
+	}
+
+	let myDropzone = new Dropzone("#UserPhotoForm");
+
+	myDropzone.options.acceptedFiles = 'image/*';
+	myDropzone.options.maxFiles = 1;
+
+	myDropzone.on("addedfile", function(file) {
+		$('.dropzone .md-photo-camera').remove();
+
+		let removeButton = Dropzone.createElement("<button class='btn btn-red' style='width: 100%;padding: 3px;margin-top: 5px;'>Fechar</button>");
+
+		let _this = this;
+
+		removeButton.addEventListener("click", function(e) {
+			e.preventDefault();
+			e.stopPropagation();
+
+			$('#btnAlterarFoto label').click();
+		});
+
+		file.previewElement.appendChild(removeButton);
+	});
+}
+
+function loadChangePhoto() {
+	myDropzone.on("success", function(file) {
+		const Toast = Swal.mixin({
+			toast: true,
+			position: 'top-end',
+			showConfirmButton: false,
+			timer: 3000,
+			timerProgressBar: true,
+		});
+
+		let newPhoto = $('.dz-details img').attr('src');
+
+		$('.header-nav img').attr('src', newPhoto);
+		$('.user-image .img-avatar').attr('src', newPhoto);
+		$('.wrapfooter .img').attr('src', newPhoto);
+
+		Toast.fire({
+			icon: 'success',
+			title: 'Foto alterada com sucesso',
+		});
+	});
 }

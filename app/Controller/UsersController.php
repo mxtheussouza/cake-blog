@@ -112,30 +112,30 @@ class UsersController extends AppController
 		$this->response->body(json_encode($response));
     }
 
-	// public function changePhoto($id)
-    // {
-    //     if (!empty($_FILES)) {
-    //         $parts = pathinfo($_FILES['file']['name']);
-    //         $tempFile = $_FILES['file']['tmp_name'];
-    //         $targetPath = 'img/upload/avatar/';
-    //         $newFileName = $id . '.' . strtolower($parts['extension']);
-    //         $targetFile = $targetPath . $newFileName;
-    //         $error = 0;
+	public function changePhoto($user_id)
+    {
+		if (!empty($_FILES)) {
+            $parts = pathinfo($_FILES['file']['name']);
+            $tempFile = $_FILES['file']['tmp_name'];
+            $targetPath = 'img/upload/avatar/';
+            $newFileName = $user_id . '.' . strtolower($parts['extension']);
+            $targetFile = $targetPath . $newFileName;
+            $error = 0;
 
-    //         if (move_uploaded_file($tempFile, $targetFile)) {
-    //             $data['User']['id'] = $id;
-    //             $data['User']['photo'] = strtolower($newFileName);
-    //             $data['User']['modified'] = date('Y-m-d H:i:s');
-
-    //             $this->User->id = $id;
-    //             $this->User->save($data, false);
-    //             $this->Session->write('Auth.User.photo', $data['User']['photo']);
-    //             $error = 0;
-    //         } else {
-    //             $error = 1;
-    //         }
-    //         echo json_encode(compact('error'));
-    //         exit;
-    //     }
-    // }
+            if (move_uploaded_file($tempFile, $targetFile)) {
+                // SALVA NO BANCO NO NOME DA IMAGEM
+                $data['User']['id'] = $user_id;
+                $data['User']['photo'] = strtolower($newFileName);
+                $data['User']['modified'] = date('d/m/Y H:i:s');
+                $this->User->id = $user_id;
+                $this->User->save($data, false);
+                $this->Session->write('Auth.User.photo', $data['User']['photo']);
+                $error = 0;
+            } else {
+                $error = 1;
+            }
+            echo json_encode(compact('error'));
+            exit;
+        }
+    }
 }

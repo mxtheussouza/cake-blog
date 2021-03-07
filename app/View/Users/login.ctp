@@ -1,4 +1,5 @@
 <img class="wave" src="img/auth/wave.png">
+
 <div class="container">
 	<div class="img">
 		<img src="img/auth/bg.svg">
