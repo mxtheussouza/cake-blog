@@ -353,23 +353,11 @@ function loadFormChangePhoto() {
 
 function loadChangePhoto() {
 	myDropzone.on("success", function(file) {
-		const Toast = Swal.mixin({
-			toast: true,
-			position: 'top-end',
-			showConfirmButton: false,
-			timer: 3000,
-			timerProgressBar: true,
-		});
 
 		let newPhoto = $('.dz-details img').attr('src');
 
 		$('.header-nav img').attr('src', newPhoto);
 		$('.user-image .img-avatar').attr('src', newPhoto);
 		$('.wrapfooter .img').attr('src', newPhoto);
-
-		Toast.fire({
-			icon: 'success',
-			title: 'Foto alterada com sucesso',
-		});
 	});
 }
