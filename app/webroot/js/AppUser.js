@@ -8,7 +8,6 @@ var habilitaBotoesUser = function() {
 		e.preventDefault();
 
 		let id = $(this).attr('idEdit');
-
 		editPost(id);
 	});
 
@@ -24,7 +23,6 @@ var habilitaBotoesUser = function() {
 
 	$('.btnEditUser').click(function(e) {
 		e.preventDefault();
-
 		let id = $(this).attr('idEditUser');
 
 		editUser(id);
@@ -38,13 +36,6 @@ var habilitaBotoesUser = function() {
 
 		deleteUser(url);
 	});
-
-	$('#btnChangePhoto label').popover( { html: true } );
-
-	$('#btnChangePhoto label').click(function() {
-		loadFormChangePhoto();
-	});
-
 }
 
 var loadEventosUser = function() {
@@ -185,6 +176,8 @@ function editUser(id) {
                 }
             });
         });
+
+		loadFormChangePhoto();
 	});
 }
 
@@ -324,10 +317,6 @@ function loadModal(url, callback = null) {
 }
 
 function loadFormChangePhoto() {
-	if (typeof $("#UserPhotoForm")[0].dropzone != 'undefined') {
-		return false;
-	}
-
 	let myDropzone = new Dropzone("#UserPhotoForm");
 
 	myDropzone.options.acceptedFiles = 'image/*';
@@ -353,7 +342,6 @@ function loadFormChangePhoto() {
 
 function loadChangePhoto() {
 	myDropzone.on("success", function(file) {
-
 		let newPhoto = $('.dz-details img').attr('src');
 
 		$('.header-nav img').attr('src', newPhoto);

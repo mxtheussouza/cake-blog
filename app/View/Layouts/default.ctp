@@ -1,5 +1,4 @@
 <?php
-
 $cakeDescription = __d('cake_dev', 'CakeBLOG');
 ?>
 

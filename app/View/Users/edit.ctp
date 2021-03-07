@@ -10,21 +10,9 @@
 				</button>
 			</div>
 
-			<h5 id="btnChangePhoto" class="hidden-xs" style="margin-top: 1rem; display: flex; justify-content: center;">&nbsp;
-				<label
-					title="Selecione uma imagem..."
-					data-toggle="popover"
-					data-placement="bottom"
-					data-content='
-						<?php echo $this->Form->create('User', ['url' => 'changePhoto', 'id' => 'UserPhotoForm', 'class' => 'dropzone', 'enctype' => 'multipart/form-data']); ?>
-						<div class="md md-photo-camera" style="font-size: 500%; padding-left: 41px; padding-right: 41px;cursor:pointer;">
-						</div>
-						<?php echo $this->Form->end(); ?>'
-					class="label label-default"
-					style="cursor:pointer;">
-						Alterar foto
-				</label>
-			</h5>
+			<form class="dropzone" id="UserPhotoForm" action="/users/changePhoto"> 
+				<small> Insira sua imagem aqui </small>
+			</form> 
 
 			<?php echo $this->Form->create('User');?>
 				<div class="modal-body">
