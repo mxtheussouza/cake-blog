@@ -25,7 +25,7 @@
 											<?php if (empty($v['Post']['img'])) { ?>
 												<div class="thumbnail" style="background-image:url(/img/favicon.png);"></div>
 											<?php } else { ?>
-												<div class="thumbnail" style="background-image:url();"></div>
+												<div class="thumbnail" style="background-image:url(/img/<?php echo $v['Post']['img']; ?>);"></div>
 											<?php } ?>
 										</a>
 									</div>

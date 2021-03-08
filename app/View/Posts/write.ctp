@@ -35,7 +35,7 @@
 							<div id="editor" style="border: 1px solid #ced4da;"></div>
 						</div> -->
 
-						<button type="submit" class="btn btn-danger" style="background-color: #b8403f;">Postar</button>
+						<button type="submit" class="btn btn-danger btnSavePost" style="background-color: #b8403f;">Postar</button>
 					<?php echo $this->Form->end();?>
 				</div>
 			</div>

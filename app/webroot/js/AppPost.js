@@ -63,7 +63,7 @@ function addPost(url) {
 		dataType: 'JSON',
 		data: dados,
         beforeSend: function() {
-        	$('button').html('Postando...').attr('disabled', true);
+        	$('.btnSavePost').html('Postando...').attr('disabled', true);
         },
         success: function(response) {
 			if (!response.error) {
@@ -82,7 +82,7 @@ function addPost(url) {
 			});
         },
 		complete: function() {
-        	$('button').html('Postar').attr('disabled', false);
+        	$('.btnSavePost').html('Postar').attr('disabled', false);
 			$('#PostTitle').val('');
 			$('#PostContent').val('');
 		},

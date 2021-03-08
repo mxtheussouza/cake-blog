@@ -33,19 +33,15 @@ class PostsController extends AppController
             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
 
 			if (!empty($this->request->data['Post']['img'])) {
-                $imgTmp = $this->request->data['Post']['img'];
-                $dirImg = "img/upload/post_img/";
-                $newPath = $this->Post->move_file($imgTmp, $dirImg);
+				move_uploaded_file($this->request->data['Post']['img'], "img/upload/post_img");
+
+				$img = explode("/", $this->request->data['Post']['img']);
+                $dirImg = "upload/post_img/".$img[4];
+
+				$this->request->data['Post']['img'] = $dirImg;
             }
 
-			$arrayFormPost = [
-                'img' => $newPath ? $newPath : $this->request->data['Post']['img'],
-                'title' =>  $this->request->data['Post']['title'],
-                'content' =>  $this->request->data['Post']['content'],
-                'user_id' =>  $this->request->data['Post']['user_id'],
-            ];
-
-            if ($this->Post->save($arrayFormPost)) {
+            if ($this->Post->save($this->request->data)) {
                 $response['error'] = false;
 				$response['msg'] = "Postado com sucesso!";
             }
