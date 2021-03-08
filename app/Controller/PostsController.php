@@ -32,7 +32,20 @@ class PostsController extends AppController
         if ($this->request->is('post')) {
             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
 
-            if ($this->Post->save($this->request->data)) {
+			if (!empty($this->request->data['Post']['img'])) {
+                $imgTmp = $this->request->data['Post']['img'];
+                $dirImg = "img/upload/post_img/";
+                $newPath = $this->Post->move_file($imgTmp, $dirImg);
+            }
+
+			$arrayFormPost = [
+                'img' => $newPath ? $newPath : $this->request->data['Post']['img'],
+                'title' =>  $this->request->data['Post']['title'],
+                'content' =>  $this->request->data['Post']['content'],
+                'user_id' =>  $this->request->data['Post']['user_id'],
+            ];
+
+            if ($this->Post->save($arrayFormPost)) {
                 $response['error'] = false;
 				$response['msg'] = "Postado com sucesso!";
             }
@@ -80,5 +93,43 @@ class PostsController extends AppController
 		}
 
 		$this->response->body(json_encode($response));
+	}
+
+	public function imgBlog()
+	{
+        $this->autoRender = false;
+
+        if (!empty($_FILES)) {
+            $infoImg = pathinfo($_FILES['file']['name']);
+            $dir = 'img/upload/post_img/tmp/';
+            $tmpImg = $_FILES['file']['tmp_name'];
+            $myImg = $dir . uniqid(md5($_FILES['file']['name'])).'.'.strtolower($infoImg['extension']);
+
+			if (move_uploaded_file($tmpImg, $myImg)) {
+				$response = $myImg;
+			}
+
+            $this->response->body($response);
+        }
+    }
+
+	public function unlinkImage($queryStrUrl)
+	{
+        $this->autoRender = false;
+        $this->layout = "ajax";
+
+		$url = str_replace("-","/",$queryStrUrl);
+
+        if (unlink($url)) {
+            $response['error'] = false;
+        } else {
+            $response['error'] = true;
+        }
+
+        $this->response->body(json_encode($response));
+    }
+
+	public function img() {
+		$this->autoRender = false;
 	}
 }

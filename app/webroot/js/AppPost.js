@@ -1,6 +1,9 @@
+Dropzone.autoDiscover = false;
+
 $(document).ready(function() {
 	habilitaBotoesPost();
 	loadEventosPost();
+	loadFormAddImg();
 });
 
 var habilitaBotoesPost = function() {
@@ -22,6 +25,16 @@ var habilitaBotoesPost = function() {
 				addPost(url);
             }
 		});
+	});
+
+	$(".removeImg").click(function(e){
+		e.preventDefault();
+
+		let element = $(this);
+		let completeUrl = $(this).attr('id');
+		let urlSplit = completeUrl.split('/').join('-');
+
+		deleteImg(urlSplit, element);
 	});
 }
 
@@ -74,4 +87,70 @@ function addPost(url) {
 			$('#PostContent').val('');
 		},
     });
+}
+
+function loadFormAddImg() {
+	var myDropzone = new Dropzone("#blogPostImg", {
+		url: `${baseUrl}/posts/imgBlog/`
+	});
+
+	myDropzone.options.acceptedFiles = 'image/*';
+	myDropzone.options.maxFiles = 1;
+
+	myDropzone.on("addedfile", function(file){
+		$(".title-dropzone").hide();
+		$("#previewImg").remove();
+
+		file.previewElement.append();
+	});
+
+	myDropzone.on("success", function(file, response){
+		this.removeFile(file);
+		console.log(response);
+
+		let prevImg = $("#postImg").val();
+
+		if (prevImg != "") {
+			prevImg = prevImg.split('/').join('-');
+			cleanImages("img/"+prevImg);
+		}
+
+		$(".removeImg").attr("id", response);
+		$("#imgPrev").attr("src", response);
+		$("#postImg").val(response);
+		$(".removeImg").show();
+	});
+}
+
+function cleanImages(url) {
+	let cleanUrl = `${baseUrl}/posts/unlinkImage/${url}`;
+
+	$.get(cleanUrl);
+}
+
+function deleteImg(url, element) {
+	let deleteUrl = `${baseUrl}/posts/unlinkImage/${url}`;
+
+	$.ajax({
+		type: 'GET',
+		url: deleteUrl,
+		dataType: 'JSON',
+		beforeSend: function() {
+			element.prop("disabled",true).html("REMOVENDO...")
+		},
+		success: function(response) {
+			if(!response.error){
+				$("#imgPrev").removeAttr("src");
+				$(".title-dropzone").show();
+				$("#postImg").val("");
+				element.hide();
+			}
+		},
+		error: function() {
+			console.log("Ocorreu um erro interno, tente novamente mais tarde");
+		},
+		complete: function() {
+			element.prop("disabled", false).html("REMOVER");
+		}
+	});
 }

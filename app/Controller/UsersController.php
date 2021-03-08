@@ -132,10 +132,12 @@ class UsersController extends AppController
 
                 $this->User->save($data, false);
                 $this->Session->write('Auth.User.photo', $data['User']['photo']);
+
                 $error = 0;
             } else {
                 $error = 1;
             }
+
             echo json_encode(compact('error'));
             exit;
         }
