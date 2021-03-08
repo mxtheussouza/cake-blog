@@ -10,9 +10,10 @@
 				</button>
 			</div>
 
-			<form class="dropzone" id="UserPhotoForm" action="/users/changePhoto"> 
+			<?php echo $this->Form->create('User', ['url' => 'changePhoto', 'id' => 'UserPhotoForm', 'class' => 'dropzone', 'enctype' => 'multipart/form-data', 'style' => 'display: flex; flex-direction: column;']); ?>
 				<small> Insira sua imagem aqui </small>
-			</form> 
+			<?php echo $this->Form->end(); ?>'
+
 
 			<?php echo $this->Form->create('User');?>
 				<div class="modal-body">

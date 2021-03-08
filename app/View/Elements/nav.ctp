@@ -21,10 +21,10 @@
 								<div style="display: flex;">
 									<?php echo $this->Html->link($this->Session->read('Auth.User.nickname'), ['controller' => '', 'action' => ''], ['class' => 'nav-link dropbtn']); ?>
 
-									<?php if (empty($v['User']['photo'])) { ?>
+									<?php if (empty($this->Session->read('Auth.User.photo'))) { ?>
 										<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 									<?php } else { ?>
-										<img alt="Author Photo" src="#" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+										<img alt="Author Photo" src="/img/upload/avatar/<?php echo $this->Session->read('Auth.User.photo'); ?>" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 									<?php } ?>
 								</div>
 

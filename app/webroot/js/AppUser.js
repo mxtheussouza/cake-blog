@@ -177,7 +177,7 @@ function editUser(id) {
             });
         });
 
-		loadFormChangePhoto();
+		loadFormChangePhoto(id);
 	});
 }
 
@@ -212,7 +212,6 @@ function updateUser(id) {
 				});
 			}
 
-			loadChangePhoto();
 			getDados();
         },
         error: function (response) {
@@ -287,6 +286,7 @@ function getDados() {
         success: function(data) {
             $('.global-section').html(($(data).find('.global-section > ')));
 
+			changePhotos();
             habilitaBotoesUser();
         },
         error: function() {
@@ -316,16 +316,22 @@ function loadModal(url, callback = null) {
     });
 }
 
-function loadFormChangePhoto() {
+function loadFormChangePhoto(id) {
+	if (typeof $("#UserPhotoForm")[0].dropzone != 'undefined') {
+		return false;
+	}
+
 	let myDropzone = new Dropzone("#UserPhotoForm");
 
 	myDropzone.options.acceptedFiles = 'image/*';
 	myDropzone.options.maxFiles = 1;
+	myDropzone.options.params = {
+		user_id: id,
+	}
 
 	myDropzone.on("addedfile", function(file) {
-		$('.dropzone .md-photo-camera').remove();
 
-		let removeButton = Dropzone.createElement("<button class='btn btn-red' style='width: 100%;padding: 3px;margin-top: 5px;'>Fechar</button>");
+		let removeButton = Dropzone.createElement("<button class='btn btn-red' style='width: 100%;padding: 3px;margin-top: 5px;'>Remover</button>");
 
 		let _this = this;
 
@@ -333,19 +339,18 @@ function loadFormChangePhoto() {
 			e.preventDefault();
 			e.stopPropagation();
 
-			$('#btnAlterarFoto label').click();
+			$('.dz-details img').removeAttr('src');
+			$('#UserPhotoForm').html('<small> Insira sua imagem aqui </small>');
 		});
 
 		file.previewElement.appendChild(removeButton);
 	});
 }
 
-function loadChangePhoto() {
-	myDropzone.on("success", function(file) {
-		let newPhoto = $('.dz-details img').attr('src');
+function changePhotos() {
+	let newPhoto = $('.dz-details img').attr('src');
 
-		$('.header-nav img').attr('src', newPhoto);
-		$('.user-image .img-avatar').attr('src', newPhoto);
-		$('.wrapfooter .img').attr('src', newPhoto);
-	});
+	$('.header-nav img').attr('src', newPhoto);
+	$('.user-image .img-avatar').attr('src', newPhoto);
+	$('.wrapfooter .img').attr('src', newPhoto);
 }

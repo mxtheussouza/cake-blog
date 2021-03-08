@@ -337,3 +337,7 @@ span.post-read-more a {
 .label-default {
     background-color: #969c9c;
 }
+
+img.avatar {
+	border-radius: 50%;
+}

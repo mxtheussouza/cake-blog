@@ -86,7 +86,7 @@
 																		<?php if (empty($v['User']['photo'])) { ?>
 																			<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 																		<?php } else { ?>
-																			<img alt="Author Photo" src="#" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
+																			<img alt="Author Photo" src="/img/upload/avatar/<?php  echo $v['User']['photo']; ?>" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 																		<?php } ?>
 																	</a>
 																</span>
