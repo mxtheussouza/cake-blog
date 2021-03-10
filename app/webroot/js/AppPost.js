@@ -74,6 +74,7 @@ function addPost(url) {
 			}
 
             habilitaBotoesPost();
+			loadEventosPost();
         },
         error: function(response) {
 			Toast.fire({
@@ -106,7 +107,6 @@ function loadFormAddImg() {
 
 	myDropzone.on("success", function(file, response){
 		this.removeFile(file);
-		console.log(response);
 
 		let prevImg = $("#postImg").val();
 
@@ -116,7 +116,7 @@ function loadFormAddImg() {
 		}
 
 		$(".removeImg").attr("id", response);
-		$("#imgPrev").attr("src", response);
+		$("#imgPrev").attr("src", "/"+response);
 		$("#postImg").val(response);
 		$(".removeImg").show();
 	});
