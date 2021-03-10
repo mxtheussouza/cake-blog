@@ -17,4 +17,12 @@ class Post extends AppModel
             'rule' => 'notBlank'
         ]
     ];
+
+	public function moveFile($file, $destination)
+	{
+        $filename = pathinfo($file)['basename'];
+        $path = $destination."/".$filename;
+
+        return rename($file,$path) ? str_replace("img/","",$path) : null;
+    }
 }

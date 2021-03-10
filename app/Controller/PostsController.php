@@ -33,10 +33,10 @@ class PostsController extends AppController
             $this->request->data['Post']['user_id'] = $this->Auth->user('id');
 
 			if (!empty($this->request->data['Post']['img'])) {
-				move_uploaded_file($this->request->data['Post']['img'], "img/upload/post_img");
-
 				$img = explode("/", $this->request->data['Post']['img']);
                 $dirImg = "upload/post_img/".$img[4];
+
+				$this->Post->moveFile($this->request->data['Post']['img'], "img/upload/post_img");
 
 				$this->request->data['Post']['img'] = $dirImg;
             }
@@ -124,8 +124,4 @@ class PostsController extends AppController
 
         $this->response->body(json_encode($response));
     }
-
-	public function img() {
-		$this->autoRender = false;
-	}
 }
