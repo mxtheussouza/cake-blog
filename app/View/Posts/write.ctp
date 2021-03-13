@@ -10,7 +10,7 @@
 
 				<div>
 					<?php echo $this->Form->create('Post');?>
-						<?php echo $this->Form->hidden('img',['id' => 'postImg']); ?>
+						<?php echo $this->Form->hidden('img', ['id' => 'postImg']); ?>
 
 						<div class="form-group" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
 							<div id='blogPostImg' class='dropzone' enctype='multipart/form-data' style="cursor: pointer;">
