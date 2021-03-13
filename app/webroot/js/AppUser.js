@@ -8,6 +8,7 @@ var habilitaBotoesUser = function() {
 		e.preventDefault();
 
 		let id = $(this).attr('idEdit');
+
 		editPost(id);
 	});
 
@@ -23,6 +24,7 @@ var habilitaBotoesUser = function() {
 
 	$('.btnEditUser').click(function(e) {
 		e.preventDefault();
+
 		let id = $(this).attr('idEditUser');
 
 		editUser(id);
@@ -317,11 +319,11 @@ function loadModal(url, callback = null) {
 }
 
 function loadFormChangePhoto(id) {
-	if (typeof $("#UserPhotoForm")[0].dropzone != 'undefined') {
+	if (typeof $('#UserPhotoForm')[0].dropzone != 'undefined') {
 		return false;
 	}
 
-	let myDropzone = new Dropzone("#UserPhotoForm");
+	let myDropzone = new Dropzone('#UserPhotoForm');
 
 	myDropzone.options.acceptedFiles = 'image/*';
 	myDropzone.options.maxFiles = 1;
@@ -329,13 +331,13 @@ function loadFormChangePhoto(id) {
 		user_id: id,
 	}
 
-	myDropzone.on("addedfile", function(file) {
+	myDropzone.on('addedfile', function(file) {
 
-		let removeButton = Dropzone.createElement("<button class='btn btn-red' style='width: 100%;padding: 3px;margin-top: 5px;'>Remover</button>");
+		let removeButton = Dropzone.createElement('<button class="btn btn-red" style="width: 100%; padding: 3px; margin-top: 5px;">Remover</button>');
 
 		let _this = this;
 
-		removeButton.addEventListener("click", function(e) {
+		removeButton.addEventListener('click', function(e) {
 			e.preventDefault();
 			e.stopPropagation();
 

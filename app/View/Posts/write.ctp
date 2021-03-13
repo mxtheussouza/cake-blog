@@ -15,7 +15,7 @@
 						<div class="form-group" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
 							<div id='blogPostImg' class='dropzone' enctype='multipart/form-data' style="cursor: pointer;">
 								<p class="title-dropzone" style="font-size: 1.4rem;">Arraste a imagem aqui ou clique para fazer o upload.</p>
-								<div style='font-size: 500%; padding-left: 41px; padding-right: 41px;cursor:pointer;'>
+								<div style='width: 100%; max-width: 600px; padding-left: 41px; padding-right: 41px;cursor:pointer;'>
 									<img id="imgPrev" style="width:100%"/>
 								</div>
 							</div>

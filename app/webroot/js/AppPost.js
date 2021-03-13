@@ -27,7 +27,7 @@ var habilitaBotoesPost = function() {
 		});
 	});
 
-	$(".removeImg").click(function(e){
+	$('.removeImg').click(function(e){
 		e.preventDefault();
 
 		let element = $(this);
@@ -91,34 +91,34 @@ function addPost(url) {
 }
 
 function loadFormAddImg() {
-	var myDropzone = new Dropzone("#blogPostImg", {
+	let myDropzone = new Dropzone('#blogPostImg', {
 		url: `${baseUrl}/posts/imgBlog/`
 	});
 
 	myDropzone.options.acceptedFiles = 'image/*';
 	myDropzone.options.maxFiles = 1;
 
-	myDropzone.on("addedfile", function(file){
-		$(".title-dropzone").hide();
-		$("#previewImg").remove();
+	myDropzone.on('addedfile', function(file){
+		$('.title-dropzone').hide();
+		$('#previewImg').remove();
 
 		file.previewElement.append();
 	});
 
-	myDropzone.on("success", function(file, response){
+	myDropzone.on('success', function(file, response){
 		this.removeFile(file);
 
-		let prevImg = $("#postImg").val();
+		let prevImg = $('#postImg').val();
 
-		if (prevImg != "") {
+		if (prevImg != '') {
 			prevImg = prevImg.split('/').join('-');
-			cleanImages("img/"+prevImg);
+			cleanImages(`img/${prevImg}`);
 		}
 
-		$(".removeImg").attr("id", response);
-		$("#imgPrev").attr("src", "/"+response);
-		$("#postImg").val(response);
-		$(".removeImg").show();
+		$('.removeImg').attr('id', response);
+		$('#imgPrev').attr('src', `/${response}`);
+		$('#postImg').val(response);
+		$('.removeImg').show();
 	});
 }
 
@@ -136,21 +136,21 @@ function deleteImg(url, element) {
 		url: deleteUrl,
 		dataType: 'JSON',
 		beforeSend: function() {
-			element.prop("disabled",true).html("REMOVENDO...")
+			element.prop('disabled', true).html('REMOVENDO...');
 		},
 		success: function(response) {
 			if(!response.error){
-				$("#imgPrev").removeAttr("src");
-				$(".title-dropzone").show();
-				$("#postImg").val("");
+				$('#imgPrev').removeAttr('src');
+				$('.title-dropzone').show();
+				$('#postImg').val('');
 				element.hide();
 			}
 		},
 		error: function() {
-			console.log("Ocorreu um erro interno, tente novamente mais tarde");
+			console.log('Ocorreu um erro interno, tente novamente mais tarde');
 		},
 		complete: function() {
-			element.prop("disabled", false).html("REMOVER");
+			element.prop('disabled', false).html('REMOVER');
 		}
 	});
 }

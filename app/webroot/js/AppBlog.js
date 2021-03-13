@@ -7,7 +7,7 @@ var habilitaBotoesBlog = function() {
 	$('.navigation > ul > li > a').click(function(e) {
         e.preventDefault();
 
-        let url = $(this).attr("href");
+        let url = $(this).attr('href');
         $('html,body').scrollTop(0);
 
         blogsPaginate(url);
@@ -31,7 +31,7 @@ function blogsPaginate(url) {
             habilitaBotoesBlog();
         },
         error: function() {
-            console.log("Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado");
+            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
         }
     });
 }
