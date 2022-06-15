@@ -1,4 +1,4 @@
-CakeBLOG _(EM DESENVOLVIMENTO)_
+CakeBLOG
 ------------
 Blog criado com CakePHP.
 
