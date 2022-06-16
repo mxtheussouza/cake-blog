@@ -1,4 +1,4 @@
-CakeBLOG _(EM DESENVOLVIMENTO)_
+CakeBLOG
 ------------
 Blog criado com CakePHP.
 
@@ -11,13 +11,13 @@ Requisitos
 
 **=> Clone o repositório**
 ```sh
-git clone https://github.com/matheusdearaujo/CakeBLOG.git
+git clone https://github.com/matheusdearaujo/cake-blog.git
 ```
 
 **=> Entre na pasta do projeto**
 
 ```sh
-cd CakeBLOG
+cd cake-blog
 ```
 
 **=> Rode o docker**
