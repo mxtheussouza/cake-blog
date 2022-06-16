@@ -22,15 +22,15 @@
 					</div>
 
 					<div class="form-group">
-						<?php echo $this->Form->input('username', ['label' => '', 'class' => 'form-control']); ?>
+						<?php echo $this->Form->input('username', ['label' => 'E-mail:', 'class' => 'form-control']); ?>
 					</div>
 
 					<div class="form-group">
-						<?php echo $this->Form->input('name', ['label' => '', 'class' => 'form-control']); ?>
+						<?php echo $this->Form->input('name', ['label' => 'Nome Completo:', 'class' => 'form-control']); ?>
 					</div>
 
 					<div class="form-group">
-						<?php echo $this->Form->input('nickname', ['label' => '', 'class' => 'form-control']); ?>
+						<?php echo $this->Form->input('nickname', ['label' => 'Nome de Usuário:', 'class' => 'form-control']); ?>
 					</div>
 				</div>
 

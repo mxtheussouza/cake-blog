@@ -10,24 +10,28 @@
 			<div class="table-responsive">
 				<table class="table table-hover text-nowrap">
 					<tr style="background-color: #b8403f; color: #fff;">
+						<th style="text-align: center;">Foto</th>
 						<th>Nome Completo</th>
 						<th>Nome de Usuário</th>
-						<th>Grupo</th>
-						<th>Ações</th>
+						<th style="text-align: center;">Grupo</th>
+						<th style="text-align: center;">Ações</th>
 					</tr>
 
 					<?php foreach ($users as $user) { ?>
 						<tr>
+							<td style="text-align: center;">
+								<?php echo $this->Html->image('upload/avatar/'.$user['User']['photo'],['class' => 'img-avatar']); ?>
+							</td>
 							<td>
 								<?php echo $user['User']['name']; ?>
 							</td>
 							<td>
 								<?php echo $user['User']['nickname']; ?>
 							</td>
-							<td>
+							<td style="text-align: center;">
 								<?php echo $user['Group']['name']; ?>
 							</td>
-							<td>
+							<td style="text-align: center;">
 								<div class="dropdown">
 									<button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #b8403f; ">
 										<i class="fas fa-cog"></i>

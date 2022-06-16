@@ -49,7 +49,7 @@
 
 								<hr>
 
-								<div style="margin: 0 0 8rem 0;">
+								<div style="margin: 0 0 8rem 0; text-align: justify;">
 									<p><?php echo  $dados['Post']['content'] ?></p>
 								</div>
 							</article>
