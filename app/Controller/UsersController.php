@@ -60,6 +60,9 @@ class UsersController extends AppController
 	public function edit($id = null)
 	{
         $this->User->id = $id;
+        $this->loadModel('Group');
+
+        $groups = $this->Group->find('list');
 
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Usuário Inválido'));
@@ -69,6 +72,8 @@ class UsersController extends AppController
 			$this->request->data = $this->User->findById($id);
             unset($this->request->data['User']['password']);
 		}
+
+        $this->set(compact('groups'));
     }
 
 	public function update($id = null)

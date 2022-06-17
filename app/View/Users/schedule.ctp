@@ -20,7 +20,13 @@
 					<?php foreach ($users as $user) { ?>
 						<tr>
 							<td style="text-align: center;">
-								<?php echo $this->Html->image('upload/avatar/'.$user['User']['photo'],['class' => 'img-avatar']); ?>
+								<?php
+									if (empty($user['User']['photo'])) {
+										echo $this->Html->image('upload/avatar/default.svg',['class' => 'img-avatar']);
+									} else {
+										echo $this->Html->image('upload/avatar/'.$user['User']['photo'],['class' => 'img-avatar']);
+									}
+								?>
 							</td>
 							<td>
 								<?php echo $user['User']['name']; ?>

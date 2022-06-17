@@ -25,12 +25,26 @@
 						<?php echo $this->Form->input('username', ['label' => 'E-mail:', 'class' => 'form-control']); ?>
 					</div>
 
-					<div class="form-group">
-						<?php echo $this->Form->input('name', ['label' => 'Nome Completo:', 'class' => 'form-control']); ?>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<?php echo $this->Form->input('name', ['label' => 'Nome Completo:', 'class' => 'form-control']); ?>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<?php echo $this->Form->input('nickname', ['label' => 'Nome de Usuário:', 'class' => 'form-control']); ?>
+							</div>
+						</div>
 					</div>
 
-					<div class="form-group">
-						<?php echo $this->Form->input('nickname', ['label' => 'Nome de Usuário:', 'class' => 'form-control']); ?>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<?php echo $this->Form->input('group_id', ['label' => 'Cargo:', 'class' => 'form-control', 'options' => $groups]); ?>
+							</div>
+						</div>
 					</div>
 				</div>
 
