@@ -9,7 +9,10 @@ class UsersController extends AppController
 		$this->layout = 'auth';
 
         if ($this->request->is('post')) {
+            $this->request->data['User']['nickname'] = str_replace(' ', '', $this->request->data['User']['nickname']);
+
             $this->User->create();
+
             if ($this->User->save($this->request->data)) {
                 $this->redirect(['action' => 'login']);
             }
@@ -30,19 +33,19 @@ class UsersController extends AppController
 		$this->redirect($this->Auth->logout());
 	}
 
-    public function profile($id = null)
+    public function profile($nickname = null)
     {
         $this->loadModel('Post');
 		$this->layout = 'default';
 
-        if (!$this->User->exists($id)) {
+		$dados = $this->User->findByNickname($nickname);
+
+        if (empty($dados)) {
             throw new NotFoundException(__('Usuário Inválido'));
         }
 
-		$dados = $this->User->findById($id);
-
         $postAuthor = $this->Post->find('all', [
-            'conditions' => ['Post.user_id' => $id],
+            'conditions' => ['Post.user_id' => $dados['User']['id']],
             'order' => ['Post.id' => 'DESC']
         ]);
 
@@ -85,9 +88,15 @@ class UsersController extends AppController
 		$response['msg'] = "Não foi possível atualizar o usuário.";
 
 		if ($this->request->is('post') || $this->request->is('put')) {
+            $this->request->data['User']['nickname'] = str_replace(' ', '', $this->request->data['User']['nickname']);
+            
             if ($this->User->save($this->request->data)) {
 				$response['error'] = false;
 				$response['msg'] = "Usuário atualizado!";
+                
+                if ($this->Auth->User('id') == $id) {
+                    $this->Session->write('Auth.User.nickname', $this->request->data['User']['nickname']);
+                }
 			}
         }
 

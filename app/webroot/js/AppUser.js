@@ -41,7 +41,7 @@ var habilitaBotoesUser = function() {
 }
 
 var loadEventosUser = function() {
-
+	blockSpace();
 }
 
 function editPost(id) {
@@ -315,6 +315,7 @@ function loadModal(url, callback = null) {
 		}
 
 		habilitaBotoesUser();
+		loadEventosUser();
     });
 }
 
@@ -355,4 +356,14 @@ function changePhotos() {
 	$('.header-nav img').attr('src', newPhoto);
 	$('.user-image .img-avatar').attr('src', newPhoto);
 	$('.wrapfooter .img').attr('src', newPhoto);
+}
+
+function blockSpace() {
+	const inputNickname = $('#UserNickname');
+
+	inputNickname.keypress(function(e) {
+		if (e.keyCode === 32) {
+			e.preventDefault();
+		}
+	});
 }

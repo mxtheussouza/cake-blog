@@ -44,7 +44,7 @@
 									</button>
 
 									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<a href="/users/profile/<?php echo $user['User']['id']; ?>" class="dropdown-item">Ver Usuário</a>
+										<a href="/users/profile/<?php echo $user['User']['nickname']; ?>" class="dropdown-item">Ver Usuário</a>
 										<a idEditUser="<?php echo $user['User']['id']; ?>" class="dropdown-item btnEditUser" href="#">Editar Usuário</a>
 										<div class="dropdown-divider"></div>
 										<a idDeleteUser="<?php echo $user['User']['id']; ?>" class="dropdown-item btnDeleteUser" href="#">Deletar Usuário</a>

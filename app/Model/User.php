@@ -13,7 +13,7 @@ class User extends AppModel
 	public $validate = [
         'username' => [
             'required' => [
-                'rule' => ['notBlank'],
+                'rule' => ['notBlank', 'isUnique'],
                 'message' => 'Um email é obrigatório.'
             ]
         ],
@@ -25,7 +25,7 @@ class User extends AppModel
         ],
 		'nickname' => [
             'required' => [
-                'rule' => ['notBlank'],
+                'rule' => ['notBlank', 'isUnique'],
                 'message' => 'Um nome de usuário é obrigatório.'
             ]
         ],

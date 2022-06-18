@@ -82,7 +82,7 @@
 														<div>
 															<div class="wrapfooter">
 																<span class="meta-footer-thumb">
-																	<a href="/users/profile/<?php echo $v['User']['id']; ?>">
+																	<a href="/users/profile/<?php echo $v['User']['nickname']; ?>">
 																		<?php if (empty($v['User']['photo'])) { ?>
 																			<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 																		<?php } else { ?>
@@ -92,7 +92,7 @@
 																</span>
 																<span class="author-meta">
 																	<span class="post-name">
-																		<a href="/users/profile/<?php echo $v['User']['id']; ?>"><?php echo $v['User']['name']; ?></a>
+																		<a href="/users/profile/<?php echo $v['User']['nickname']; ?>"><?php echo $v['User']['name']; ?></a>
 																	</span>
 																	<br>
 																	<span class="post-date"><?php echo date("d/m/Y", strtotime($v['Post']['created'])); ?></span>
