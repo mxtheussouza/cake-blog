@@ -14,7 +14,7 @@ class User extends AppModel
         'username' => [
             'required' => [
                 'rule' => ['notBlank', 'isUnique'],
-                'message' => 'Um email é obrigatório.'
+                'message' => 'Um nome de usuário é obrigatório.'
             ]
         ],
 		'name' => [
@@ -23,10 +23,10 @@ class User extends AppModel
                 'message' => 'Um nome é obrigatório.'
             ]
         ],
-		'nickname' => [
+		'email' => [
             'required' => [
                 'rule' => ['notBlank', 'isUnique'],
-                'message' => 'Um nome de usuário é obrigatório.'
+                'message' => 'Um email é obrigatório.'
             ]
         ],
         'password' => [

@@ -4,7 +4,16 @@
 
 		<main class="wrap" style="padding: 1rem;">
 			<?php if ($this->Session->read('Auth.User')) { ?>
-				<h1 class="welcome-title">Bem vindo, <span style="color: #b8403f"><?php echo $this->Session->read('Auth.User.name'); ?></span>, ao CakeBLOG!</h1>
+				<h1 class="welcome-title">Bem vindo, 
+					<span style="color: #b8403f">
+						<?php 
+							$userName = explode(' ', $this->Session->read('Auth.User.name'));
+							$firstName = array_shift($userName);
+							
+							echo $firstName; 
+						?>
+					</span>, ao CakeBLOG!
+				</h1>
 			<?php } else { ?>
 				<h1 class="welcome-title">Bem vindo ao CakeBLOG!</h1>
 			<?php } ?>
@@ -38,7 +47,7 @@
 											<div>
 												<div class="wrapfooter">
 													<span class="meta-footer-thumb">
-														<a href="/users/profile/<?php echo $v['User']['nickname']; ?>">
+														<a href="/users/profile/<?php echo $v['User']['username']; ?>">
 															<?php if (empty($v['User']['photo'])) { ?>
 																<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 															<?php } else { ?>
@@ -48,7 +57,7 @@
 													</span>
 													<span class="author-meta">
 														<span class="post-name">
-															<a href="/users/profile/<?php echo $v['User']['nickname']; ?>"><?php echo $v['User']['name']; ?></a>
+															<a href="/users/profile/<?php echo $v['User']['username']; ?>"><?php echo $v['User']['name']; ?></a>
 														</span>
 														<br>
 														<span class="post-date"><?php echo date("d/m/Y", strtotime($v['Post']['created'])); ?></span>

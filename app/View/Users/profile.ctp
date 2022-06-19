@@ -16,7 +16,7 @@
 					</div>
 					<div class="author-name">
 						<span> <?php echo $dados['User']['name'];?> </span>
-						<span class="nick"> @<?php echo $dados['User']['nickname'];?> </span>
+						<span class="nick"> @<?php echo $dados['User']['username'];?> </span>
 						<p> <?php echo $dados['Group']['name'];?> </p>
 					</div>
 
@@ -82,7 +82,7 @@
 														<div>
 															<div class="wrapfooter">
 																<span class="meta-footer-thumb">
-																	<a href="/users/profile/<?php echo $v['User']['nickname']; ?>">
+																	<a href="/users/profile/<?php echo $v['User']['username']; ?>">
 																		<?php if (empty($v['User']['photo'])) { ?>
 																			<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
 																		<?php } else { ?>
@@ -92,7 +92,7 @@
 																</span>
 																<span class="author-meta">
 																	<span class="post-name">
-																		<a href="/users/profile/<?php echo $v['User']['nickname']; ?>"><?php echo $v['User']['name']; ?></a>
+																		<a href="/users/profile/<?php echo $v['User']['username']; ?>"><?php echo $v['User']['name']; ?></a>
 																	</span>
 																	<br>
 																	<span class="post-date"><?php echo date("d/m/Y", strtotime($v['Post']['created'])); ?></span>

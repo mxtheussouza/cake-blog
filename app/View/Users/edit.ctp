@@ -21,20 +21,24 @@
 						<?php echo $this->Form->input('id', ['type' => 'hidden']); ?>
 					</div>
 
-					<div class="form-group">
-						<?php echo $this->Form->input('username', ['label' => 'E-mail:', 'class' => 'form-control']); ?>
-					</div>
-
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<?php echo $this->Form->input('name', ['label' => 'Nome Completo:', 'class' => 'form-control']); ?>
 							</div>
 						</div>
-						
+
 						<div class="col-md-6">
 							<div class="form-group">
-								<?php echo $this->Form->input('nickname', ['label' => 'Nome de Usuário:', 'class' => 'form-control']); ?>
+								<?php echo $this->Form->input('username', ['label' => 'Nome de Usuário:', 'class' => 'form-control']); ?>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<?php echo $this->Form->input('email', ['label' => 'E-mail:', 'class' => 'form-control']); ?>
 							</div>
 						</div>
 					</div>

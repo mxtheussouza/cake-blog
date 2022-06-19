@@ -19,7 +19,7 @@
 						<li class="nav-list-item">
 							<div class="dropdown">
 								<div style="display: flex;">
-									<?php echo $this->Html->link($this->Session->read('Auth.User.nickname'), ['controller' => '', 'action' => ''], ['class' => 'nav-link dropbtn']); ?>
+									<?php echo $this->Html->link($this->Session->read('Auth.User.username'), ['controller' => '', 'action' => ''], ['class' => 'nav-link dropbtn']); ?>
 
 									<?php if (empty($this->Session->read('Auth.User.photo'))) { ?>
 										<img alt="Author Photo" src="/img/upload/avatar/default.svg" class="avatar avatar-40 photo jetpack-lazy-image jetpack-lazy-image--handled" height="40" width="40" data-lazy-loaded="1" loading="eager"/>
@@ -29,7 +29,7 @@
 								</div>
 
 								<div id="myDropdown" class="dropdown-content">
-									<?php echo $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'profile', $this->Session->read('Auth.User.id')], ['class' => 'nav-link']); ?>
+									<?php echo $this->Html->link('Perfil', ['controller' => 'users', 'action' => 'profile', $this->Session->read('Auth.User.username')], ['class' => 'nav-link']); ?>
 
 									<?php echo $this->Html->link('Escreva um Blog', ['controller' => 'posts', 'action' => 'write'], ['class' => 'nav-link']); ?>
 

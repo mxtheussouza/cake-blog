@@ -8,11 +8,11 @@
 	<?php echo $this->Form->create('User');?>
 		<h2 class="title">Faça sua conta</h2>
 
-		<?php echo $this->Form->input('username', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'E-mail']); ?>
+		<?php echo $this->Form->input('username', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Nome de Usuário']); ?>
 
 		<?php echo $this->Form->input('name', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Nome Completo']); ?>
 
-		<?php echo $this->Form->input('nickname', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Nome de Usuário']); ?>
+		<?php echo $this->Form->input('email', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'E-mail']); ?>
 
 		<?php echo $this->Form->input('password', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Senha']); ?>
 

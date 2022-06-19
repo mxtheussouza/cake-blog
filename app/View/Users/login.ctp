@@ -9,7 +9,7 @@
 	<?php echo $this->Form->create('User');?>
 		<h2 class="title">FAÇA O LOGIN!</h2>
 
-		<?php echo $this->Form->input('username', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'E-mail']); ?>
+		<?php echo $this->Form->input('username', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Nome de Usuário']); ?>
 
 		<?php echo $this->Form->input('password', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Senha']); ?>
 

@@ -359,9 +359,9 @@ function changePhotos() {
 }
 
 function blockSpace() {
-	const inputNickname = $('#UserNickname');
+	const inputUsername = $('#UserUsername');
 
-	inputNickname.keypress(function(e) {
+	inputUsername.keypress(function(e) {
 		if (e.keyCode === 32) {
 			e.preventDefault();
 		}
