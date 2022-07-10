@@ -13,7 +13,7 @@
 
 		<?php echo $this->Form->input('password', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Senha']); ?>
 
-		<input type="submit" class="btn" value="Login">
+		<button type="submit" class="btn btnLogin">Login</button>
 
 		<a href="/register">Ainda não possue uma conta?</a>
 

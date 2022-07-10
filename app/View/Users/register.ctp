@@ -16,7 +16,7 @@
 
 		<?php echo $this->Form->input('password', ['label' => '', 'class' => 'input-auth',  'tabindex' => '1', 'placeholder' => 'Senha']); ?>
 
-		<input type="submit" class="btn" value="Registrar">
+		<button type="submit" class="btn btnRegister">Registrar</button>
 
 		<a href="/login">Já possue uma conta?</a>
 

@@ -61,6 +61,8 @@ a:hover{
 }
 
 .input-auth {
+	width: 100%;
+	text-align: center;
 	background: transparent;
 	border: none;
 	border-bottom: 2px solid #d9d9d9;
@@ -105,6 +107,16 @@ input:-webkit-autofill:focus {
 }
 .btn:hover{
 	background-position: right;
+}
+
+.btn.btnLogin, .btn.btnRegister{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btnLogin img, .btn.btnRegister img {
+	height: 60%;
 }
 
 

@@ -4,9 +4,21 @@ App::uses('AppController', 'Controller');
 
 class UsersController extends AppController
 {
+    public $helpers = ['Html','Form'];
+    public $name = 'Users';
+
 	public function register()
 	{
 		$this->layout = 'auth';
+    }
+
+    public function validation()
+	{
+        $this->layout = 'ajax';
+		$this->autoRender = false;
+		
+        $response['error'] = true;
+		$response['msg'] = "Não foi possível fazer o registro. Dados inválidos ou usuário já existe.";
 
         if ($this->request->is('post')) {
             $this->request->data['User']['username'] = str_replace(' ', '', $this->request->data['User']['username']);
@@ -14,18 +26,35 @@ class UsersController extends AppController
             $this->User->create();
 
             if ($this->User->save($this->request->data)) {
-                $this->redirect(['action' => 'login']);
+                $response['error'] = false;
+                $response['msg'] = "Registrado!";
             }
         }
+
+		$this->response->body(json_encode($response));
     }
 
 	public function login()
 	{
 		$this->layout = 'auth';
+	}
 
-		if ($this->Auth->login()) {
-			$this->redirect($this->Auth->redirect());
-		}
+    public function authentication()
+	{
+        $this->layout = 'ajax';
+		$this->autoRender = false;
+		
+        $response['error'] = true;
+		$response['msg'] = "Não foi possível fazer o login. Dados incorretos ou usuário inválido.";
+
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $response['error'] = false;
+				$response['msg'] = "Logado!";
+            }
+        }
+
+		$this->response->body(json_encode($response));
 	}
 
 	public function logout()

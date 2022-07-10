@@ -15,6 +15,6 @@ class AppController extends Controller
 
     function beforeFilter()
 	{
-        $this->Auth->allow('index', 'login', 'register', 'logout', 'write', 'add', 'edit', 'delete', 'deleteUser', 'update', 'post', 'profile', 'schedule', 'changePhoto', 'imgBlog', 'unlinkImage');
+        $this->Auth->allow('index', 'login', 'authentication', 'register', 'validation', 'logout', 'write', 'add', 'edit', 'delete', 'deleteUser', 'update', 'post', 'profile', 'schedule', 'changePhoto', 'imgBlog', 'unlinkImage');
     }
 }
