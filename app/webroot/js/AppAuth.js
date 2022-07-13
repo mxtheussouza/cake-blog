@@ -66,15 +66,17 @@ function auth(model, url, data, button, location) {
 					icon: 'success',
 					title: response.msg,
 				});
-			}
 
-			//window.location.href = location;
+				window.location.href = location;
+			} else {
+				Toast.fire({
+					icon: 'error',
+					title: response.msg,
+				});
+			}
 		},
-		error: function(response) {
-			Toast.fire({
-				icon: 'error',
-				title: response.msg,
-			});
+		error: function() {
+            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
 		},
 		complete: function() {
 			button.html(model).attr('disabled', false);

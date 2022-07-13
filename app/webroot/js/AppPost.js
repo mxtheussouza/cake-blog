@@ -71,16 +71,18 @@ function addPost(url) {
 					icon: 'success',
 					title: response.msg,
 				});
+			} else {
+				Toast.fire({
+					icon: 'error',
+					title: response.msg,
+				});
 			}
 
             habilitaBotoesPost();
 			loadEventosPost();
         },
-        error: function(response) {
-			Toast.fire({
-				icon: 'error',
-				title: response.msg,
-			});
+        error: function() {
+            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
         },
 		complete: function() {
         	$('.btnSavePost').html('Postar').attr('disabled', false);

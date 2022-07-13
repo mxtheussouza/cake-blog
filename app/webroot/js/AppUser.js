@@ -97,15 +97,17 @@ function updatePost(id) {
 					icon: 'success',
 					title: response.msg,
 				});
+			} else {
+				Toast.fire({
+					icon: 'error',
+					title: response.msg,
+				});
 			}
 
 			getDados();
         },
-        error: function (response) {
-			Toast.fire({
-				icon: 'error',
-				title: response.msg,
-			});
+        error: function () {
+            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
         },
         complete: function () {
             $('input').attr('disabled', false);
@@ -144,13 +146,15 @@ function deletePost(url, element) {
 							icon: 'success',
 							title: response.msg,
 						});
+					} else {
+						Toast.fire({
+							icon: 'error',
+							title: response.msg,
+						});
 					}
 				},
-				error: function(response) {
-					Toast.fire({
-						icon: 'error',
-						title: response.msg,
-					});
+				error: function() {
+					console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
 				}
 			});
 		}
@@ -212,15 +216,17 @@ function updateUser(id) {
 					icon: 'success',
 					title: response.msg,
 				});
+			} else {
+				Toast.fire({
+					icon: 'error',
+					title: response.msg,
+				});
 			}
 
 			getDados();
         },
-        error: function (response) {
-			Toast.fire({
-				icon: 'error',
-				title: response.msg,
-			});
+        error: function () {
+			console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
         },
         complete: function () {
             $('input').attr('disabled', false);
@@ -258,13 +264,15 @@ function deleteUser(url) {
 							icon: 'success',
 							title: response.msg,
 						});
+					} else {
+						Toast.fire({
+							icon: 'error',
+							title: response.msg,
+						});
 					}
 				},
-				error: function(response) {
-					Toast.fire({
-						icon: 'error',
-						title: response.msg,
-					});
+				error: function() {
+					console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
 				},
 				complete: function() {
 					if (window.location.href == `${baseUrl}/users/schedule`) {
