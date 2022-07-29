@@ -1,29 +1,29 @@
 CakeBLOG
 ------------
-Blog criado com CakePHP.
+Blog created with CakePHP.
 
-Requisitos
+Requirements
 ------------
- - Docker e Docker Compose
+ - [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/)
 
- Instalação
+Installation
 ------------
 
-**=> Clone o repositório**
+**1. Clone the repository**
 ```sh
 git clone https://github.com/matheusdearaujo/cake-blog.git
 ```
 
-**=> Entre na pasta do projeto**
+**2. Change directory**
 
 ```sh
 cd cake-blog
 ```
 
-**=> Rode o docker**
+**3. Run docker**
 
 ```sh
  docker-compose up -d --build
 ```
 
-**=> Acesse localhost:8181 para a aplicação.**
+**- Access the application in port 8181.**
