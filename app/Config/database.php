@@ -69,10 +69,10 @@ class DATABASE_CONFIG {
 	public $default = [
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'us-cdbr-east-03.cleardb.com',
-		'login' => 'ba46a7beb7956c',
-		'password' => '897f0f60',
-		'database' => 'heroku_b02ea7d03cfa7dc',
+		'host' => '127.0.0.1',
+		'login' => 'cakeblog',
+		'password' => 'cakeblog',
+		'database' => 'cakeblog_db',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	];

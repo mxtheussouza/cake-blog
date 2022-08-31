@@ -7,4 +7,16 @@ services:
     volumes:
       - ./:/var/www/html/public
     ports:
-      - "8181:80"
+      - 8181:80
+
+  mysql:
+    image: mysql:5.7
+    container_name: techdinner-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: cakeblog_db
+      MYSQL_USER: cakeblog
+      MYSQL_PASSWORD: cakeblog
+    ports:
+      - 3300:3306
