@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   web:
-    build: .docker
+    build: .
     container_name: cakeblog
     volumes:
       - ./:/var/www/html/public
@@ -11,7 +11,7 @@ services:
 
   mysql:
     image: mysql:5.7
-    container_name: techdinner-db
+    container_name: cakeblog_db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -19,4 +19,4 @@ services:
       MYSQL_USER: cakeblog
       MYSQL_PASSWORD: cakeblog
     ports:
-      - 3300:3306
+      - 3306:3306
