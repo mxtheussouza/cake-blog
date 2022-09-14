@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -64,15 +65,15 @@
  * flags =>
  * A key/value array of driver specific connection options.
  */
-class DATABASE_CONFIG {
-
+class DATABASE_CONFIG
+{
 	public $default = [
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => '127.0.0.1',
+		'host' => 'cakeblog-db',
 		'login' => 'cakeblog',
 		'password' => 'cakeblog',
-		'database' => 'cakeblog_db',
+		'database' => 'cakeblog-db',
 		'prefix' => '',
 		'encoding' => 'utf8',
 	];

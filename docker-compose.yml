@@ -1,21 +1,30 @@
 version: '3.1'
 
 services:
-  web:
+  cakeblog-web:
     build: .
-    container_name: cakeblog
+    image: cakeblog-php
+    container_name: cakeblog-web
     volumes:
       - ./:/var/www/html/public
     ports:
       - 8181:80
+    networks:
+      - cakeblognet
 
-  mysql:
+  cakeblog-db:
     image: mysql:5.7
-    container_name: cakeblog_db
+    container_name: cakeblog-db
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: cakeblog_db
+      MYSQL_DATABASE: cakeblog-db
       MYSQL_USER: cakeblog
       MYSQL_PASSWORD: cakeblog
     ports:
-      - 3306:3306
+      - 3505:3306
+    networks:
+      - cakeblognet
+
+networks:
+  cakeblognet:
+      driver: bridge

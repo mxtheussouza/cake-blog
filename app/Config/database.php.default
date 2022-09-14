@@ -66,16 +66,16 @@
  */
 class DATABASE_CONFIG {
 
-	public $default = array(
+	public $default = [
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'host' => 'localhost',
-		'login' => 'root',
-		'password' => '1234',
-		'database' => 'blog',
+		'host' => 'cakeblog-db',
+		'login' => 'cakeblog',
+		'password' => 'cakeblog',
+		'database' => 'cakeblog-db',
 		'prefix' => '',
 		'encoding' => 'utf8',
-	);
+	];
 
 	public $test = array(
 		'datasource' => 'Database/Mysql',
