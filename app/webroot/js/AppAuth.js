@@ -1,85 +1,85 @@
-$(document).ready(function() {
+$(document).ready(() => {
 	habilitaBotoesAuth();
 	loadEventosAuth();
 });
 
-var habilitaBotoesAuth = function() {
-	$('#UserLoginForm').submit(function(e) {
+const habilitaBotoesAuth = () => {
+	$("#UserLoginForm").submit(e => {
 		e.preventDefault();
 
-		let model = 'Login';
-		let url = '/users/authentication';
-		let data = $('#UserLoginForm').serialize();
-		let button = $('.btnLogin');
-		let location = '/';
+		const model = "Login";
+		const url = "/users/authentication";
+		const data = $("#UserLoginForm").serialize();
+		const button = $(".btnLogin");
+		const location = "/";
 
 		auth(model, url, data, button, location);
 	});
 
-	$('#UserRegisterForm').submit(function(e) {
+	$("#UserRegisterForm").submit(e => {
 		e.preventDefault();
 
-		let model = 'Registrar';
-		let url = '/users/validation';
-		let data = $('#UserRegisterForm').serialize();
-		let button = $('.btnRegister');
-		let location = '/login';
+		const model = "Registrar";
+		const url = "/users/validation";
+		const data = $("#UserRegisterForm").serialize();
+		const button = $(".btnRegister");
+		const location = "/login";
 
 		auth(model, url, data, button, location);
 	});
-}
+};
 
-var loadEventosAuth = function() {
+const loadEventosAuth = () => {
 	blockSpace();
-}
+};
 
 function blockSpace() {
-	const inputUsername = $('#UserUsername');
+	const inputUsername = $("#UserUsername");
 
-	inputUsername.keypress(function(e) {
-		if (e.keyCode === 32) {
-			e.preventDefault();
-		}
+	inputUsername.keypress(e => {
+		if (e.keyCode === 32) e.preventDefault();
 	});
 }
 
 function auth(model, url, data, button, location) {
 	const Toast = Swal.mixin({
 		toast: true,
-		position: 'top-end',
+		position: "top-end",
 		showConfirmButton: false,
 		timer: 3000,
 		timerProgressBar: true,
 	});
 
 	$.ajax({
-		type: 'POST',
+		type: "POST",
 		url: url,
-		dataType: 'JSON',
+		dataType: "JSON",
 		data: data,
-		beforeSend: function() {
-			button.html('<img src="../img/loading.gif"/>').attr('disabled', true);
+		beforeSend: () => {
+			button.html('<img src="../img/loading.gif"/>').attr("disabled", true);
 		},
-		success: function(response) {
+		success: response => {
 			if (!response.error) {
 				Toast.fire({
-					icon: 'success',
+					icon: "success",
 					title: response.msg,
 				});
 
 				window.location.href = location;
 			} else {
 				Toast.fire({
-					icon: 'error',
+					icon: "error",
 					title: response.msg,
 				});
 			}
 		},
-		error: function() {
-            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
+		error: () => {
+			console.log(
+				"Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado",
+			);
 		},
-		complete: function() {
-			button.html(model).attr('disabled', false);
-		}
+		complete: () => {
+			button.html(model).attr("disabled", false);
+		},
 	});
 }

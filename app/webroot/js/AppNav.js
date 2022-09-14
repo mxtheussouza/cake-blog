@@ -1,56 +1,56 @@
-$(document).ready(function() {
+$(document).ready(() => {
 	habilitaBotoesNav();
 	loadEventosNav();
 });
 
-var habilitaBotoesNav = function() {
-	$('.dropbtn').click(function(e) {
+const habilitaBotoesNav = () => {
+	$(".dropbtn").click(e => {
 		e.preventDefault();
 
-		$('#myDropdown').toggleClass('show');
+		$("#myDropdown").toggleClass("show");
 	});
 
-	$(window).click(function(e) {
-		if (!e.target.matches('.dropbtn')) {
-			let dropdowns = $('.dropdown-content');
+	$(window).click(e => {
+		if (!e.target.matches(".dropbtn")) {
+			const dropdowns = $(".dropdown-content");
+
 			let i;
 
 			for (i = 0; i < dropdowns.length; i++) {
-				let openDropdown = dropdowns[i];
+				const openDropdown = dropdowns[i];
 
-				if (openDropdown.classList.contains('show')) {
-					openDropdown.classList.remove('show');
-				}
+				if (openDropdown.classList.contains("show"))
+					openDropdown.classList.remove("show");
 			}
 		}
 	});
 
-	$('#btnLogout').click(function(e) {
+	$("#btnLogout").click(e => {
 		e.preventDefault();
 
 		logoutUser();
 	});
-}
+};
 
-var loadEventosNav = function() {
+const loadEventosNav = () => {
 	// darkMode();
-}
+};
 
 function logoutUser() {
 	Swal.fire({
-		title: 'Você deseja sair?',
-		icon: 'question',
+		title: "Você deseja sair?",
+		icon: "question",
 		showCancelButton: true,
-		confirmButtonColor: '#218838',
-		cancelButtonColor: '#d33',
-		confirmButtonText: 'Sim, quero sair!',
-		cancelButtonText: 'Cancelar',
-	}).then((result) => {
+		confirmButtonColor: "#218838",
+		cancelButtonColor: "#d33",
+		confirmButtonText: "Sim, quero sair!",
+		cancelButtonText: "Cancelar",
+	}).then(result => {
 		if (result.value) {
 			$.ajax({
-				url: '/logout',
+				url: "/logout",
 				success: function () {
-					window.location.href = '/';
+					window.location.href = "/";
 				},
 			});
 		}
@@ -58,8 +58,8 @@ function logoutUser() {
 }
 
 // function darkMode() {
-//     let buttonChange = $('.theme-button');
-//     let contents = $('body, .wrapthumbnail, .wrapcontent');
+//     const buttonChange = $('.theme-button');
+//     const contents = $('body, .wrapthumbnail, .wrapcontent');
 
 //     buttonChange.click(() => {
 //         setDarkMode = localStorage.getItem('dark-theme');
@@ -79,7 +79,7 @@ function logoutUser() {
 //         }
 //     });
 
-//     let setDarkMode = localStorage.getItem('dark-theme');
+//     const setDarkMode = localStorage.getItem('dark-theme');
 //     if (setDarkMode === 'on') {
 //         contents.toggleClass('dark-theme');
 //         buttonChange.toggleClass('fa-toggle-on');

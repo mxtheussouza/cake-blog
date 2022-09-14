@@ -1,37 +1,39 @@
-$(document).ready(function() {
+$(document).ready(() => {
 	habilitaBotoesBlog();
 	loadEventosBlog();
 });
 
-var habilitaBotoesBlog = function() {
-	$('.navigation > ul > li > a').click(function(e) {
-        e.preventDefault();
+const habilitaBotoesBlog = () => {
+	$(".navigation > ul > li > a").click(e => {
+		e.preventDefault();
 
-        let url = $(this).attr('href');
-        $('html,body').scrollTop(0);
+		const url = $(this).attr("href");
+		$("html,body").scrollTop(0);
 
-        blogsPaginate(url);
-    });
-}
+		blogsPaginate(url);
+	});
+};
 
-var loadEventosBlog = function() {
-
-}
+const loadEventosBlog = () => {};
 
 function blogsPaginate(url) {
-    $.ajax({
-        type: 'GET',
-        url: url,
-        dataType: 'HTML',
-        beforeSend: function() {
-        	$(".content-blog").html(`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="../img/loading.gif"/> </div>`);
-        },
-        success: function(data) {
-            $('.content-blog').html(($(data).find('.content-blog > ')));
-            habilitaBotoesBlog();
-        },
-        error: function() {
-            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
-        }
-    });
+	$.ajax({
+		type: "GET",
+		url: url,
+		dataType: "HTML",
+		beforeSend: () => {
+			$(".content-blog").html(
+				`<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;"> <img src="../img/loading.gif"/> </div>`,
+			);
+		},
+		success: data => {
+			$(".content-blog").html($(data).find(".content-blog > "));
+			habilitaBotoesBlog();
+		},
+		error: () => {
+			console.log(
+				"Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado",
+			);
+		},
+	});
 }

@@ -1,158 +1,163 @@
 Dropzone.autoDiscover = false;
 
-$(document).ready(function() {
+$(document).ready(() => {
 	habilitaBotoesPost();
 	loadEventosPost();
 	loadFormAddImg();
 });
 
-var habilitaBotoesPost = function() {
-	$('#PostWriteForm').submit(function(e) {
+const habilitaBotoesPost = () => {
+	$("#PostWriteForm").submit(e => {
 		e.preventDefault();
 
-		let url = '/posts/add';
+		const url = "/posts/add";
 
 		Swal.fire({
-            title: 'Tem certeza que deseja postar este conteúdo?',
-            icon: 'question',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            confirmButtonColor: '#218838',
-			cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, quero postar!',
-		}).then((result) => {
-            if (result.value) {
-				addPost(url);
-            }
+			title: "Tem certeza que deseja postar este conteúdo?",
+			icon: "question",
+			showCancelButton: true,
+			cancelButtonText: "Cancelar",
+			confirmButtonColor: "#218838",
+			cancelButtonColor: "#d33",
+			confirmButtonText: "Sim, quero postar!",
+		}).then(result => {
+			if (result.value) addPost(url);
 		});
 	});
 
-	$('.removeImg').click(function(e){
+	$(".removeImg").click(e => {
 		e.preventDefault();
 
-		let element = $(this);
-		let completeUrl = $(this).attr('id');
-		let urlSplit = completeUrl.split('/').join('-');
+		const element = $(this);
+		const completeUrl = $(this).attr("id");
+		const urlSplit = completeUrl.split("/").join("-");
 
 		deleteImg(urlSplit, element);
 	});
-}
+};
 
-var loadEventosPost = function() {
-	$('#PostContent').keyup(function() {
-		while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css('borderTopWidth')) + parseFloat($(this).css('borderBottomWidth'))) {
-			$(this).height($(this).height()+1);
-		};
+const loadEventosPost = () => {
+	$("#PostContent").keyup(() => {
+		while (
+			$(this).outerHeight() <
+			this.scrollHeight +
+				parseFloat($(this).css("borderTopWidth")) +
+				parseFloat($(this).css("borderBottomWidth"))
+		) {
+			$(this).height($(this).height() + 1);
+		}
 	});
-}
+};
 
 function addPost(url) {
-	let dados = $('#PostWriteForm').serialize();
+	const dados = $("#PostWriteForm").serialize();
 
 	const Toast = Swal.mixin({
 		toast: true,
-		position: 'top-end',
+		position: "top-end",
 		showConfirmButton: false,
 		timer: 3000,
 		timerProgressBar: true,
 	});
 
 	$.ajax({
-        type: 'POST',
-        url: url,
-		dataType: 'JSON',
+		type: "POST",
+		url: url,
+		dataType: "JSON",
 		data: dados,
-        beforeSend: function() {
-        	$('.btnSavePost').html('Postando...').attr('disabled', true);
-        },
-        success: function(response) {
+		beforeSend: () => {
+			$(".btnSavePost").html("Postando...").attr("disabled", true);
+		},
+		success: response => {
 			if (!response.error) {
 				Toast.fire({
-					icon: 'success',
+					icon: "success",
 					title: response.msg,
 				});
 			} else {
 				Toast.fire({
-					icon: 'error',
+					icon: "error",
 					title: response.msg,
 				});
 			}
 
-            habilitaBotoesPost();
+			habilitaBotoesPost();
 			loadEventosPost();
-        },
-        error: function() {
-            console.log('Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado');
-        },
-		complete: function() {
-        	$('.btnSavePost').html('Postar').attr('disabled', false);
-			$('#PostTitle').val('');
-			$('#PostContent').val('');
 		},
-    });
+		error: () => {
+			console.log(
+				"Ocorreu um erro interno, tente novamente mais tarde ou abra um chamado",
+			);
+		},
+		complete: () => {
+			$(".btnSavePost").html("Postar").attr("disabled", false);
+			$("#PostTitle").val("");
+			$("#PostContent").val("");
+		},
+	});
 }
 
 function loadFormAddImg() {
-	let myDropzone = new Dropzone('#blogPostImg', {
-		url: `${baseUrl}/posts/imgBlog/`
+	const myDropzone = new Dropzone("#blogPostImg", {
+		url: `${baseUrl}/posts/imgBlog/`,
 	});
 
-	myDropzone.options.acceptedFiles = 'image/*';
+	myDropzone.options.acceptedFiles = "image/*";
 	myDropzone.options.maxFiles = 1;
 
-	myDropzone.on('addedfile', function(file){
-		$('.title-dropzone').hide();
-		$('#previewImg').remove();
+	myDropzone.on("addedfile", file => {
+		$(".title-dropzone").hide();
+		$("#previewImg").remove();
 
 		file.previewElement.append();
 	});
 
-	myDropzone.on('success', function(file, response){
+	myDropzone.on("success", (file, response) => {
 		this.removeFile(file);
 
-		let prevImg = $('#postImg').val();
+		const prevImg = $("#postImg").val();
 
-		if (prevImg != '') {
-			prevImg = prevImg.split('/').join('-');
+		if (prevImg != "") {
+			prevImg = prevImg.split("/").join("-");
 			cleanImages(`img/${prevImg}`);
 		}
 
-		$('.removeImg').attr('id', response);
-		$('#imgPrev').attr('src', `/${response}`);
-		$('#postImg').val(response);
-		$('.removeImg').show();
+		$(".removeImg").attr("id", response);
+		$("#imgPrev").attr("src", `/${response}`);
+		$("#postImg").val(response);
+		$(".removeImg").show();
 	});
 }
 
 function cleanImages(url) {
-	let cleanUrl = `${baseUrl}/posts/unlinkImage/${url}`;
+	const cleanUrl = `${baseUrl}/posts/unlinkImage/${url}`;
 
 	$.get(cleanUrl);
 }
 
 function deleteImg(url, element) {
-	let deleteUrl = `${baseUrl}/posts/unlinkImage/${url}`;
+	const deleteUrl = `${baseUrl}/posts/unlinkImage/${url}`;
 
 	$.ajax({
-		type: 'GET',
+		type: "GET",
 		url: deleteUrl,
-		dataType: 'JSON',
-		beforeSend: function() {
-			element.prop('disabled', true).html('REMOVENDO...');
+		dataType: "JSON",
+		beforeSend: () => {
+			element.prop("disabled", true).html("REMOVENDO...");
 		},
-		success: function(response) {
-			if(!response.error){
-				$('#imgPrev').removeAttr('src');
-				$('.title-dropzone').show();
-				$('#postImg').val('');
+		success: response => {
+			if (!response.error) {
+				$("#imgPrev").removeAttr("src");
+				$(".title-dropzone").show();
+				$("#postImg").val("");
 				element.hide();
 			}
 		},
-		error: function() {
-			console.log('Ocorreu um erro interno, tente novamente mais tarde');
+		error: () => {
+			console.log("Ocorreu um erro interno, tente novamente mais tarde");
 		},
-		complete: function() {
-			element.prop('disabled', false).html('REMOVER');
-		}
+		complete: () => {
+			element.prop("disabled", false).html("REMOVER");
+		},
 	});
 }
