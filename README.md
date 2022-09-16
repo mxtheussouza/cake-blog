@@ -4,7 +4,7 @@ Blog created with CakePHP.
 
 ### Requirements
 
-- [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/)
+- docker and docker-compose
 
 ### Installation
 
@@ -25,3 +25,5 @@ cd cake-blog
 ```sh
  docker-compose up -d --build
 ```
+
+3. Execute querys in **default_tables.sql** file

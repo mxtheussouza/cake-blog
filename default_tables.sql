@@ -8,10 +8,6 @@ CREATE TABLE posts (
     modified DATETIME DEFAULT NULL
 );
 
-INSERT INTO posts (title, content, created)
-    VALUES ('The title', 'This is the post body.', NOW());
-
-
 CREATE TABLE users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
     username VARCHAR(50) UNIQUE,
